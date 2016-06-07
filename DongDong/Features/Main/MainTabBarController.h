@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MainTabBarController.h
 //  DongDong
 //
 //  Created by 项小盆友 on 16/6/6.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface MainTabBarController : UITabBarController
 
 @end
-
