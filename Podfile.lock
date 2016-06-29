@@ -18,6 +18,11 @@ PODS:
   - Masonry (1.0.1)
   - MJRefresh (3.1.0)
   - OpenShare (0.0.1)
+  - SDCycleScrollView (1.65):
+    - SDWebImage (~> 3.7)
+  - SDWebImage (3.8.1):
+    - SDWebImage/Core (= 3.8.1)
+  - SDWebImage/Core (3.8.1)
   - SVProgressHUD (2.0.3)
 
 DEPENDENCIES:
@@ -26,6 +31,7 @@ DEPENDENCIES:
   - Masonry
   - MJRefresh
   - OpenShare
+  - SDCycleScrollView
   - SVProgressHUD
 
 SPEC CHECKSUMS:
@@ -34,6 +40,8 @@ SPEC CHECKSUMS:
   Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
   MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
   OpenShare: a560580dbb729d5c0c3cc1ee84cd6aa4a07e94c6
+  SDCycleScrollView: f72904c77698a7f93a41bcbbc2d78b073bf7326c
+  SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
 
 COCOAPODS: 0.39.0

@@ -7,12 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface Util : NSObject
 + (BOOL)isEmpty:(id)sender;
 + (BOOL)validatePhone:(NSString *)phone;
++ (NSURL *)urlWithString:(NSString *)urlString;
 + (NSString *)compareDate:(NSDate *)date;
 + (NSString *)dateToString:(NSDate *)date;
 + (NSDate *)stringToDate:(NSString *)dateString;
++ (NSString *)numberString:(CGFloat)floatNumber;
++ (UIImage *)imageWithColor:(UIColor *)color;
 
 @end

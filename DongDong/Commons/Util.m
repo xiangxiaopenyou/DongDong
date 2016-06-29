@@ -26,6 +26,10 @@
     NSPredicate *phoneTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", phoneRegex];
     return [phoneTest evaluateWithObject:phone];
 }
++ (NSURL *)urlWithString:(NSString *)urlString {
+    NSURL *url = [NSURL URLWithString:urlString];
+    return url;
+}
 + (NSString *)compareDate:(NSDate *)date {
     NSTimeInterval secondsPerDay = 24 * 3600;
     NSDate *today = [NSDate date];
@@ -59,6 +63,25 @@
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:SS"];
     NSDate *date = [dateFormatter dateFromString:dateString];
     return date;
+}
++ (NSString *)numberString:(CGFloat)floatNumber {
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    [numberFormatter  setNumberStyle:NSNumberFormatterNoStyle];
+    [numberFormatter setMaximumFractionDigits:2];
+    return [numberFormatter stringFromNumber:@(floatNumber)];
+}
++ (UIImage *)imageWithColor:(UIColor *)color {
+    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
 }
 
 @end
