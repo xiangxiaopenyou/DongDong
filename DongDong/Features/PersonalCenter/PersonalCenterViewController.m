@@ -13,6 +13,8 @@
 
 @interface PersonalCenterViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topImageHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topImageTopConstraint;
 @property (weak, nonatomic) IBOutlet UIImageView *portraitImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nicknameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *button1;
@@ -40,6 +42,7 @@
     [_messageButton setImage:[UIImage imageNamed:@"message"] forState:UIControlStateNormal];
     [_messageButton setImage:[UIImage imageNamed:@"unread_message"] forState:UIControlStateSelected];
     [_messageButton addTarget:self action:@selector(messageClick) forControlEvents:UIControlEventTouchUpInside];
+    _messageButton.imageEdgeInsets = UIEdgeInsetsMake(0, 19, 0, - 19);
     UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_messageButton];
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
     
@@ -124,6 +127,17 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat y = scrollView.contentOffset.y;
+    if (y < 0) {
+        self.topImageTopConstraint.constant = 0;
+        self.topImageHeightConstraint.constant = 140 - y;
+    } else {
+        self.topImageTopConstraint.constant = - y;
+        self.topImageHeightConstraint.constant = 140;
+    }
+
 }
 /*
 #pragma mark - Navigation

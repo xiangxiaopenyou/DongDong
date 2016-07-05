@@ -12,6 +12,7 @@
 #import <SDCycleScrollView.h>
 #import "GoodsListCell.h"
 #import "GoodsModel.h"
+#import "MessageTableViewController.h"
 
 @interface HomepageViewController ()<UITableViewDelegate, UITableViewDataSource, SDCycleScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -28,6 +29,10 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = MAIN_BACKGROUND_COLOR;
     self.navigationItem.title = @"咚咚";
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@""
+                                                                             style:UIBarButtonItemStylePlain
+                                                                            target:self
+                                                                            action:nil];
     
     _messageButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _messageButton.frame = CGRectMake(0, 0, 40, 40);
@@ -35,6 +40,7 @@
     [_messageButton setImage:[UIImage imageNamed:@"unread_message"] forState:UIControlStateSelected];
     [_messageButton addTarget:self action:@selector(messageClick) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_messageButton];
+    _messageButton.imageEdgeInsets = UIEdgeInsetsMake(0, 19, 0, - 19);
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
     
     GoodsModel *model1 = [GoodsModel new];
@@ -142,6 +148,8 @@
 
 #pragma mark - Action
 - (void)messageClick {
+    MessageTableViewController *messageView = [[UIStoryboard storyboardWithName:@"Message" bundle:nil] instantiateViewControllerWithIdentifier:@"MessageView"];
+    [self.navigationController pushViewController:messageView animated:YES];
 }
 /*
 // In a storyboard-based application, you will often want to do a little preparation before navigation

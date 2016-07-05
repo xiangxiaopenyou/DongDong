@@ -9,7 +9,7 @@
         <scene sceneID="KPF-84-gKy">
             <objects>
                 <tabBarController id="MmJ-A9-eud" customClass="MainTabBarController" sceneMemberID="viewController">
-                    <tabBar key="tabBar" clipsSubviews="YES" contentMode="scaleToFill" id="URp-aO-Jx2">
+                    <tabBar key="tabBar" clipsSubviews="YES" contentMode="scaleToFill" backgroundImage="tabbar_background" id="URp-aO-Jx2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </tabBar>
@@ -19,4 +19,7 @@
             <point key="canvasLocation" x="-136" y="808"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tabbar_background" width="320" height="49"/>
+    </resources>
 </document>

@@ -92,6 +92,9 @@
                                         <state key="normal" title="结算">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="deleteOrBalanceClick:" destination="FsP-1M-ZW4" eventType="touchUpInside" id="gmC-nC-Trm"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -284,7 +287,7 @@
                     <connections>
                         <outlet property="balanceView" destination="w0e-5f-3vw" id="7Lt-kK-L8i"/>
                         <outlet property="bottomViewHeightConstraint" destination="60b-9D-VDs" id="eGA-uf-Zwd"/>
-                        <outlet property="deleteOrBalanceButton" destination="IUy-Qt-Tdh" id="Qf6-iP-Lt5"/>
+                        <outlet property="deleteOrBalanceButton" destination="IUy-Qt-Tdh" id="c6x-Hd-QOX"/>
                         <outlet property="luggageLabel" destination="q0f-Y2-6v0" id="ou5-EE-gw7"/>
                         <outlet property="selectAllButton" destination="Dvt-Bf-uhq" id="MEh-h2-dNX"/>
                         <outlet property="tableView" destination="VDZ-xd-mZn" id="Lod-2t-OKq"/>

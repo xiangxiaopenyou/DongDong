@@ -8,6 +8,7 @@
 
 #import "InformationEditTableViewController.h"
 #import "CommonsDefines.h"
+#import "DeliveryAddressTableViewController.h"
 
 @interface InformationEditTableViewController ()
 @property (strong, nonatomic) UIImageView *portraintImageView;
@@ -25,6 +26,10 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.navigationItem.title = @"个人信息";
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@""
+                                                                             style:UIBarButtonItemStylePlain
+                                                                            target:self
+                                                                            action:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -89,6 +94,12 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.section == 0) {
+        
+    } else {
+        DeliveryAddressTableViewController *addressView = [[UIStoryboard storyboardWithName:@"PersonalCenter" bundle:nil] instantiateViewControllerWithIdentifier:@"DeliveryAddressView"];
+        [self.navigationController pushViewController:addressView animated:YES];
+    }
 }
 
 /*

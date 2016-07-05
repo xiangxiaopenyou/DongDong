@@ -148,6 +148,7 @@
 }
 - (void)checkGoods {
     if (self.cartGoodsArray.count == 0) {
+        _editButton.selected = NO;
         _editButton.hidden = YES;
         self.bottomViewHeightConstraint.constant = 0;
         [self.tableView reloadData];
@@ -286,7 +287,6 @@
     [emptyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(emptyImageView.mas_bottom).with.offset(25);
         make.centerX.equalTo(headerView);
-        
     }];
     
     return headerView;
@@ -346,6 +346,21 @@
     }
 }
 - (IBAction)deleteOrBalanceClick:(id)sender {
+    if (_editButton.selected) {
+        if (self.selectedDeleteGoodsArray.count > 0) {
+            for (CartGoodsModel *tempModel in self.selectedDeleteGoodsArray) {
+                if ([self.selectedGoodsArray containsObject:tempModel]) {
+                    [self.selectedGoodsArray removeObject:tempModel];
+                    [self.cartGoodsArray removeObject:tempModel];
+                }
+            }
+            [self.selectedDeleteGoodsArray removeAllObjects];
+            [self.tableView reloadData];
+            [self checkGoods];
+        }
+    } else {
+        
+    }
 }
 
 @end

@@ -1,43 +1,28 @@
 //
-//  MessageTableViewController.m
+//  DeliveryAddressTableViewController.m
 //  DongDong
 //
-//  Created by 项小盆友 on 16/6/29.
+//  Created by 项小盆友 on 16/7/5.
 //  Copyright © 2016年 项小盆友. All rights reserved.
 //
 
-#import "MessageTableViewController.h"
-#import "MessageCell.h"
-#import "MessageModel.h"
+#import "DeliveryAddressTableViewController.h"
 
-@interface MessageTableViewController ()
-@property (strong, nonatomic) NSMutableArray *messageArray;
+@interface DeliveryAddressTableViewController ()
 
 @end
 
-@implementation MessageTableViewController
+@implementation DeliveryAddressTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"管理收货地址";
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    MessageModel *model1 = [MessageModel new];
-    model1.messageContent = @"您的商品已经发货，请及时查收";
-    model1.messageImageUrlString = @"http://img1.3lian.com/img013/v4/57/d/17.jpg";
-    model1.messageDateString = @"2016年7月4号 13:31";
-    
-    MessageModel *model2 = [MessageModel new];
-    model2.messageContent = @"您的商品已经发货，请及时查收噢";
-    model2.messageImageUrlString = @"http://img1.3lian.com/img013/v4/57/d/18.jpg";
-    model2.messageDateString = @"2016年7月4号 11:11";
-    
-    _messageArray = [@[model1, model2] mutableCopy];
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,17 +31,18 @@
 }
 
 #pragma mark - Table view data source
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _messageArray.count;
+    return 3;
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifier = @"MessageCell";
-    MessageCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-    [cell setupContentWith:_messageArray[indexPath.row]];
+    static NSString *cellIdentifier = @"AddressCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    
+    // Configure the cell...
+    
     return cell;
 }
-
 
 /*
 // Override to support conditional editing of the table view.

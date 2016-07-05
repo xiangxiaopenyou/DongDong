@@ -31,9 +31,13 @@
 		3D4CDC5A1D0520FC0026C9E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D4CDC591D0520FC0026C9E8 /* Assets.xcassets */; };
 		3D4CDC5D1D0520FC0026C9E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4CDC5B1D0520FC0026C9E8 /* LaunchScreen.storyboard */; };
 		3D4CDC6C1D0522210026C9E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4CDC691D0522210026C9E8 /* Main.storyboard */; };
+		3DB466651D2B956D00D26D2A /* DeliveryAddressTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB466641D2B956D00D26D2A /* DeliveryAddressTableViewController.m */; };
+		3DB466691D2B9C4C00D26D2A /* DeliveryAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB466681D2B9C4C00D26D2A /* DeliveryAddressCell.m */; };
 		3DD1F3681D210C5F006246B9 /* PersonalCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD1F3671D210C5F006246B9 /* PersonalCenterViewController.m */; };
 		3DD1F36B1D2366A4006246B9 /* InformationEditTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD1F36A1D2366A4006246B9 /* InformationEditTableViewController.m */; };
 		3DD1F36E1D239CB3006246B9 /* MessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD1F36D1D239CB3006246B9 /* MessageTableViewController.m */; };
+		3DD1F3721D2A13B7006246B9 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD1F3711D2A13B7006246B9 /* MessageCell.m */; };
+		3DD1F3761D2A2925006246B9 /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD1F3751D2A2925006246B9 /* MessageModel.m */; };
 		3DDDF25C1D10E52F00DA106A /* HomepageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDDF25B1D10E52F00DA106A /* HomepageViewController.m */; };
 		3DDDF2931D138B8D00DA106A /* ShoppingCartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDDF2921D138B8D00DA106A /* ShoppingCartViewController.m */; };
 		3DDDF2991D17DFBE00DA106A /* GoodsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DDDF2981D17DFBE00DA106A /* GoodsListCell.m */; };
@@ -83,12 +87,20 @@
 		3D4CDC5C1D0520FC0026C9E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D4CDC5E1D0520FC0026C9E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D4CDC691D0522210026C9E8 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		3DB466631D2B956D00D26D2A /* DeliveryAddressTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliveryAddressTableViewController.h; sourceTree = "<group>"; };
+		3DB466641D2B956D00D26D2A /* DeliveryAddressTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeliveryAddressTableViewController.m; sourceTree = "<group>"; };
+		3DB466671D2B9C4C00D26D2A /* DeliveryAddressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliveryAddressCell.h; sourceTree = "<group>"; };
+		3DB466681D2B9C4C00D26D2A /* DeliveryAddressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeliveryAddressCell.m; sourceTree = "<group>"; };
 		3DD1F3661D210C5F006246B9 /* PersonalCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalCenterViewController.h; sourceTree = "<group>"; };
 		3DD1F3671D210C5F006246B9 /* PersonalCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalCenterViewController.m; sourceTree = "<group>"; };
 		3DD1F3691D2366A4006246B9 /* InformationEditTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationEditTableViewController.h; sourceTree = "<group>"; };
 		3DD1F36A1D2366A4006246B9 /* InformationEditTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationEditTableViewController.m; sourceTree = "<group>"; };
 		3DD1F36C1D239CB3006246B9 /* MessageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableViewController.h; sourceTree = "<group>"; };
 		3DD1F36D1D239CB3006246B9 /* MessageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewController.m; sourceTree = "<group>"; };
+		3DD1F3701D2A13B6006246B9 /* MessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
+		3DD1F3711D2A13B7006246B9 /* MessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
+		3DD1F3741D2A2925006246B9 /* MessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageModel.h; sourceTree = "<group>"; };
+		3DD1F3751D2A2925006246B9 /* MessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageModel.m; sourceTree = "<group>"; };
 		3DDDF25A1D10E52F00DA106A /* HomepageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomepageViewController.h; sourceTree = "<group>"; };
 		3DDDF25B1D10E52F00DA106A /* HomepageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomepageViewController.m; sourceTree = "<group>"; };
 		3DDDF2911D138B8D00DA106A /* ShoppingCartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCartViewController.h; sourceTree = "<group>"; };
@@ -185,11 +197,14 @@
 		3D27800B1D056FA1003A62FB /* PersonalCenter */ = {
 			isa = PBXGroup;
 			children = (
+				3DB466661D2B959100D26D2A /* Views */,
 				3D2780171D06AB75003A62FB /* PersonalCenter.storyboard */,
 				3DD1F3661D210C5F006246B9 /* PersonalCenterViewController.h */,
 				3DD1F3671D210C5F006246B9 /* PersonalCenterViewController.m */,
 				3DD1F3691D2366A4006246B9 /* InformationEditTableViewController.h */,
 				3DD1F36A1D2366A4006246B9 /* InformationEditTableViewController.m */,
+				3DB466631D2B956D00D26D2A /* DeliveryAddressTableViewController.h */,
+				3DB466641D2B956D00D26D2A /* DeliveryAddressTableViewController.m */,
 			);
 			path = PersonalCenter;
 			sourceTree = "<group>";
@@ -252,6 +267,7 @@
 		3D4CDC4C1D0520FC0026C9E8 /* DongDong */ = {
 			isa = PBXGroup;
 			children = (
+				3DB466621D2B8A9900D26D2A /* ThirdLibs */,
 				3D4CDC671D0521840026C9E8 /* Request */,
 				3D4CDC661D0521840026C9E8 /* Models */,
 				3D4CDC651D0521840026C9E8 /* Features */,
@@ -303,6 +319,7 @@
 		3D4CDC661D0521840026C9E8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3DD1F3731D2A2911006246B9 /* MessageModel */,
 				3D36561A1D1CE06800273DF3 /* CartGoodsModel */,
 				3DDDF29A1D18CE8000DA106A /* GoodsModel */,
 				3D277FE41D052AD8003A62FB /* BaseModel */,
@@ -328,11 +345,38 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		3DD1F36F1D239CF8006246B9 /* Views */ = {
+		3DB466621D2B8A9900D26D2A /* ThirdLibs */ = {
 			isa = PBXGroup;
 			children = (
 			);
+			path = ThirdLibs;
+			sourceTree = "<group>";
+		};
+		3DB466661D2B959100D26D2A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3DB466671D2B9C4C00D26D2A /* DeliveryAddressCell.h */,
+				3DB466681D2B9C4C00D26D2A /* DeliveryAddressCell.m */,
+			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		3DD1F36F1D239CF8006246B9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3DD1F3701D2A13B6006246B9 /* MessageCell.h */,
+				3DD1F3711D2A13B7006246B9 /* MessageCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3DD1F3731D2A2911006246B9 /* MessageModel */ = {
+			isa = PBXGroup;
+			children = (
+				3DD1F3741D2A2925006246B9 /* MessageModel.h */,
+				3DD1F3751D2A2925006246B9 /* MessageModel.m */,
+			);
+			path = MessageModel;
 			sourceTree = "<group>";
 		};
 		3DDDF28D1D12437C00DA106A /* Views */ = {
@@ -508,15 +552,19 @@
 				3D2780121D05746C003A62FB /* Util.m in Sources */,
 				3D277FF01D0548C3003A62FB /* BaseModel.m in Sources */,
 				3D277FFE1D054D45003A62FB /* UIImage+ResizeMagick.m in Sources */,
+				3DB466651D2B956D00D26D2A /* DeliveryAddressTableViewController.m in Sources */,
 				3DD1F36E1D239CB3006246B9 /* MessageTableViewController.m in Sources */,
 				3D36561D1D1CE07B00273DF3 /* CartGoodsModel.m in Sources */,
 				3DDDF2931D138B8D00DA106A /* ShoppingCartViewController.m in Sources */,
 				3D4CDC4F1D0520FC0026C9E8 /* main.m in Sources */,
 				3D2780031D054FD9003A62FB /* BlockButton.m in Sources */,
+				3DB466691D2B9C4C00D26D2A /* DeliveryAddressCell.m in Sources */,
 				3D277FFD1D054D45003A62FB /* UIImage+ImageEffects.m in Sources */,
 				3D277FED1D0542C2003A62FB /* BaseRequest.m in Sources */,
 				3DDDF25C1D10E52F00DA106A /* HomepageViewController.m in Sources */,
 				3D277FE71D052B3D003A62FB /* RequestManager.m in Sources */,
+				3DD1F3721D2A13B7006246B9 /* MessageCell.m in Sources */,
+				3DD1F3761D2A2925006246B9 /* MessageModel.m in Sources */,
 				3D277FF71D054D2E003A62FB /* XLBlockAlertView.m in Sources */,
 				3D3656191D1CD3CD00273DF3 /* ShoppingCartCell.m in Sources */,
 			);
