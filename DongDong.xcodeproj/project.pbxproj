@@ -33,6 +33,15 @@
 		3D4CDC6C1D0522210026C9E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4CDC691D0522210026C9E8 /* Main.storyboard */; };
 		3DB466651D2B956D00D26D2A /* DeliveryAddressTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB466641D2B956D00D26D2A /* DeliveryAddressTableViewController.m */; };
 		3DB466691D2B9C4C00D26D2A /* DeliveryAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB466681D2B9C4C00D26D2A /* DeliveryAddressCell.m */; };
+		3DB466731D2F85B900D26D2A /* AddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB466721D2F85B900D26D2A /* AddressModel.m */; };
+		3DB466761D2F97F800D26D2A /* AddAddressCommonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB466751D2F97F800D26D2A /* AddAddressCommonCell.m */; };
+		3DB466791D2F9B2F00D26D2A /* WriteDetailAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB466781D2F9B2F00D26D2A /* WriteDetailAddressCell.m */; };
+		3DB4667C1D2F9B4800D26D2A /* SetDefaultAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB4667B1D2F9B4800D26D2A /* SetDefaultAddressCell.m */; };
+		3DB4667F1D2F9EF100D26D2A /* AddAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB4667E1D2F9EF100D26D2A /* AddAddressViewController.m */; };
+		3DB466821D33903F00D26D2A /* area.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DB466811D33903F00D26D2A /* area.plist */; };
+		3DB466841D33989700D26D2A /* AreaPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DB466831D33989600D26D2A /* AreaPicker.xib */; };
+		3DB466871D3398BD00D26D2A /* AreaPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB466861D3398BD00D26D2A /* AreaPickerView.m */; };
+		3DB4668A1D339B5400D26D2A /* AreaObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB466891D339B5400D26D2A /* AreaObject.m */; };
 		3DD1F3681D210C5F006246B9 /* PersonalCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD1F3671D210C5F006246B9 /* PersonalCenterViewController.m */; };
 		3DD1F36B1D2366A4006246B9 /* InformationEditTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD1F36A1D2366A4006246B9 /* InformationEditTableViewController.m */; };
 		3DD1F36E1D239CB3006246B9 /* MessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD1F36D1D239CB3006246B9 /* MessageTableViewController.m */; };
@@ -91,6 +100,22 @@
 		3DB466641D2B956D00D26D2A /* DeliveryAddressTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeliveryAddressTableViewController.m; sourceTree = "<group>"; };
 		3DB466671D2B9C4C00D26D2A /* DeliveryAddressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliveryAddressCell.h; sourceTree = "<group>"; };
 		3DB466681D2B9C4C00D26D2A /* DeliveryAddressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeliveryAddressCell.m; sourceTree = "<group>"; };
+		3DB466711D2F85B900D26D2A /* AddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressModel.h; sourceTree = "<group>"; };
+		3DB466721D2F85B900D26D2A /* AddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressModel.m; sourceTree = "<group>"; };
+		3DB466741D2F97F800D26D2A /* AddAddressCommonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAddressCommonCell.h; sourceTree = "<group>"; };
+		3DB466751D2F97F800D26D2A /* AddAddressCommonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAddressCommonCell.m; sourceTree = "<group>"; };
+		3DB466771D2F9B2E00D26D2A /* WriteDetailAddressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WriteDetailAddressCell.h; sourceTree = "<group>"; };
+		3DB466781D2F9B2F00D26D2A /* WriteDetailAddressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WriteDetailAddressCell.m; sourceTree = "<group>"; };
+		3DB4667A1D2F9B4800D26D2A /* SetDefaultAddressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetDefaultAddressCell.h; sourceTree = "<group>"; };
+		3DB4667B1D2F9B4800D26D2A /* SetDefaultAddressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetDefaultAddressCell.m; sourceTree = "<group>"; };
+		3DB4667D1D2F9EF100D26D2A /* AddAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAddressViewController.h; sourceTree = "<group>"; };
+		3DB4667E1D2F9EF100D26D2A /* AddAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAddressViewController.m; sourceTree = "<group>"; };
+		3DB466811D33903F00D26D2A /* area.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = area.plist; sourceTree = "<group>"; };
+		3DB466831D33989600D26D2A /* AreaPicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AreaPicker.xib; sourceTree = "<group>"; };
+		3DB466851D3398BC00D26D2A /* AreaPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaPickerView.h; sourceTree = "<group>"; };
+		3DB466861D3398BD00D26D2A /* AreaPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaPickerView.m; sourceTree = "<group>"; };
+		3DB466881D339B5400D26D2A /* AreaObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaObject.h; sourceTree = "<group>"; };
+		3DB466891D339B5400D26D2A /* AreaObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaObject.m; sourceTree = "<group>"; };
 		3DD1F3661D210C5F006246B9 /* PersonalCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalCenterViewController.h; sourceTree = "<group>"; };
 		3DD1F3671D210C5F006246B9 /* PersonalCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalCenterViewController.m; sourceTree = "<group>"; };
 		3DD1F3691D2366A4006246B9 /* InformationEditTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationEditTableViewController.h; sourceTree = "<group>"; };
@@ -205,6 +230,8 @@
 				3DD1F36A1D2366A4006246B9 /* InformationEditTableViewController.m */,
 				3DB466631D2B956D00D26D2A /* DeliveryAddressTableViewController.h */,
 				3DB466641D2B956D00D26D2A /* DeliveryAddressTableViewController.m */,
+				3DB4667D1D2F9EF100D26D2A /* AddAddressViewController.h */,
+				3DB4667E1D2F9EF100D26D2A /* AddAddressViewController.m */,
 			);
 			path = PersonalCenter;
 			sourceTree = "<group>";
@@ -319,6 +346,7 @@
 		3D4CDC661D0521840026C9E8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3DB466701D2F858F00D26D2A /* AddressModel */,
 				3DD1F3731D2A2911006246B9 /* MessageModel */,
 				3D36561A1D1CE06800273DF3 /* CartGoodsModel */,
 				3DDDF29A1D18CE8000DA106A /* GoodsModel */,
@@ -348,6 +376,7 @@
 		3DB466621D2B8A9900D26D2A /* ThirdLibs */ = {
 			isa = PBXGroup;
 			children = (
+				3DB466801D338FDE00D26D2A /* AreaPicker */,
 			);
 			path = ThirdLibs;
 			sourceTree = "<group>";
@@ -357,8 +386,36 @@
 			children = (
 				3DB466671D2B9C4C00D26D2A /* DeliveryAddressCell.h */,
 				3DB466681D2B9C4C00D26D2A /* DeliveryAddressCell.m */,
+				3DB466741D2F97F800D26D2A /* AddAddressCommonCell.h */,
+				3DB466751D2F97F800D26D2A /* AddAddressCommonCell.m */,
+				3DB466771D2F9B2E00D26D2A /* WriteDetailAddressCell.h */,
+				3DB466781D2F9B2F00D26D2A /* WriteDetailAddressCell.m */,
+				3DB4667A1D2F9B4800D26D2A /* SetDefaultAddressCell.h */,
+				3DB4667B1D2F9B4800D26D2A /* SetDefaultAddressCell.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		3DB466701D2F858F00D26D2A /* AddressModel */ = {
+			isa = PBXGroup;
+			children = (
+				3DB466711D2F85B900D26D2A /* AddressModel.h */,
+				3DB466721D2F85B900D26D2A /* AddressModel.m */,
+			);
+			path = AddressModel;
+			sourceTree = "<group>";
+		};
+		3DB466801D338FDE00D26D2A /* AreaPicker */ = {
+			isa = PBXGroup;
+			children = (
+				3DB466811D33903F00D26D2A /* area.plist */,
+				3DB466831D33989600D26D2A /* AreaPicker.xib */,
+				3DB466851D3398BC00D26D2A /* AreaPickerView.h */,
+				3DB466861D3398BD00D26D2A /* AreaPickerView.m */,
+				3DB466881D339B5400D26D2A /* AreaObject.h */,
+				3DB466891D339B5400D26D2A /* AreaObject.m */,
+			);
+			path = AreaPicker;
 			sourceTree = "<group>";
 		};
 		3DD1F36F1D239CF8006246B9 /* Views */ = {
@@ -480,8 +537,10 @@
 				3D27801D1D06AC74003A62FB /* LoginAndRegister.storyboard in Resources */,
 				3D2780181D06AB75003A62FB /* PersonalCenter.storyboard in Resources */,
 				3D4CDC5D1D0520FC0026C9E8 /* LaunchScreen.storyboard in Resources */,
+				3DB466841D33989700D26D2A /* AreaPicker.xib in Resources */,
 				3D4CDC5A1D0520FC0026C9E8 /* Assets.xcassets in Resources */,
 				3D27801A1D06AB83003A62FB /* Message.storyboard in Resources */,
+				3DB466821D33903F00D26D2A /* area.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,12 +602,16 @@
 				3DD1F36B1D2366A4006246B9 /* InformationEditTableViewController.m in Sources */,
 				3DDDF2991D17DFBE00DA106A /* GoodsListCell.m in Sources */,
 				3D277FEA1D053FDB003A62FB /* RequestCacher.m in Sources */,
+				3DB4667F1D2F9EF100D26D2A /* AddAddressViewController.m in Sources */,
 				3D4CDC521D0520FC0026C9E8 /* AppDelegate.m in Sources */,
+				3DB4668A1D339B5400D26D2A /* AreaObject.m in Sources */,
 				3D277FF81D054D2E003A62FB /* XLBlockActionSheet.m in Sources */,
 				3D27800F1D05704D003A62FB /* CommonsDefines.m in Sources */,
 				3DDDF29D1D18CE9D00DA106A /* GoodsModel.m in Sources */,
+				3DB466871D3398BD00D26D2A /* AreaPickerView.m in Sources */,
 				3DD1F3681D210C5F006246B9 /* PersonalCenterViewController.m in Sources */,
 				3D277FE21D052A9C003A62FB /* MainTabBarController.m in Sources */,
+				3DB466761D2F97F800D26D2A /* AddAddressCommonCell.m in Sources */,
 				3D2780121D05746C003A62FB /* Util.m in Sources */,
 				3D277FF01D0548C3003A62FB /* BaseModel.m in Sources */,
 				3D277FFE1D054D45003A62FB /* UIImage+ResizeMagick.m in Sources */,
@@ -560,6 +623,9 @@
 				3D2780031D054FD9003A62FB /* BlockButton.m in Sources */,
 				3DB466691D2B9C4C00D26D2A /* DeliveryAddressCell.m in Sources */,
 				3D277FFD1D054D45003A62FB /* UIImage+ImageEffects.m in Sources */,
+				3DB4667C1D2F9B4800D26D2A /* SetDefaultAddressCell.m in Sources */,
+				3DB466791D2F9B2F00D26D2A /* WriteDetailAddressCell.m in Sources */,
+				3DB466731D2F85B900D26D2A /* AddressModel.m in Sources */,
 				3D277FED1D0542C2003A62FB /* BaseRequest.m in Sources */,
 				3DDDF25C1D10E52F00DA106A /* HomepageViewController.m in Sources */,
 				3D277FE71D052B3D003A62FB /* RequestManager.m in Sources */,

@@ -58,7 +58,6 @@
     childViewController.title = title;
     childViewController.tabBarItem.image = normalImage;
     childViewController.tabBarItem.selectedImage = selectedImage;
-    
     [self addChildViewController:navigationController];
 }
 

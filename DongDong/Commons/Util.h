@@ -18,5 +18,6 @@
 + (NSDate *)stringToDate:(NSString *)dateString;
 + (NSString *)numberString:(CGFloat)floatNumber;
 + (UIImage *)imageWithColor:(UIColor *)color;
++ (CGSize)sizeOfText:(NSString *)text width:(CGFloat)width font:(UIFont *)font;
 
 @end

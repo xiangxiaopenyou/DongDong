@@ -47,6 +47,7 @@
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
     
     self.tableView.tableFooterView = [UIView new];
+    
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
