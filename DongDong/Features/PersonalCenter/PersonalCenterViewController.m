@@ -10,8 +10,9 @@
 #import "Util.h"
 #import "CommonsDefines.h"
 #import "InformationEditTableViewController.h"
+#import "MyOrdersViewController.h"
 
-@interface PersonalCenterViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface PersonalCenterViewController ()<UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topImageHeightConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topImageTopConstraint;
@@ -22,8 +23,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *button3;
 @property (weak, nonatomic) IBOutlet UIButton *button4;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *lineHeightConstraint;
-@property (strong, nonatomic) UIImage *shadowImage;
-
 @property (strong, nonatomic) UIButton *messageButton;
 
 @end
@@ -34,34 +33,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"";
-    _shadowImage = self.navigationController.navigationBar.shadowImage;
     [self setButtonContent];
-    
-    _messageButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _messageButton.frame = CGRectMake(0, 0, 40, 40);
-    [_messageButton setImage:[UIImage imageNamed:@"message"] forState:UIControlStateNormal];
-    [_messageButton setImage:[UIImage imageNamed:@"unread_message"] forState:UIControlStateSelected];
-    [_messageButton addTarget:self action:@selector(messageClick) forControlEvents:UIControlEventTouchUpInside];
-    _messageButton.imageEdgeInsets = UIEdgeInsetsMake(0, 19, 0, - 19);
-    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_messageButton];
-    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
     
     self.tableView.tableFooterView = [UIView new];
     
 }
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-    self.navigationController.navigationBar.shadowImage = [UIImage new];
-    self.navigationController.navigationBar.translucent = YES;
-}
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [self.navigationController.navigationBar setBackgroundImage:[Util imageWithColor:NAVIGATIONBAR_COLOR]
-                                                  forBarMetrics:UIBarMetricsDefault];
-    self.navigationController.navigationBar.translucent = NO;
-    self.navigationController.navigationBar.shadowImage = _shadowImage;
-}
+
 /**
  *  设置按钮图片文字上下显示
  */
@@ -140,23 +117,18 @@
     }
 
 }
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    MyOrdersViewController *ordersViewController = segue.destinationViewController;
+    ordersViewController.orderType = [segue.identifier integerValue];
 }
-*/
+
 #pragma mark - Action
-- (IBAction)allOrderClick:(id)sender {
-}
-
-- (IBAction)orderButtonsClick:(id)sender {
-}
-
-- (void)messageClick {
+- (IBAction)messageTouchUpAction:(id)sender {
 }
 - (IBAction)editInformation:(id)sender {
     InformationEditTableViewController *informationView = [[UIStoryboard storyboardWithName:@"PersonalCenter" bundle:nil] instantiateViewControllerWithIdentifier:@"InformationEditView"];

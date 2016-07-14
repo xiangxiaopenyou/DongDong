@@ -12,8 +12,9 @@
 #import "DeliveryAddressCell.h"
 #import "CommonsDefines.h"
 #import "Util.h"
+#import "XLBlockAlertView.h"
 
-@interface DeliveryAddressTableViewController ()
+@interface DeliveryAddressTableViewController ()<DeliveryAddressCellDelegate>
 @property (strong, nonatomic) NSMutableArray *addressArray;
 
 @end
@@ -24,19 +25,28 @@
     [super viewDidLoad];
     self.navigationItem.title = @"管理收货地址";
     AddressModel *model1 = [AddressModel new];
+    model1.addressId = @"1";
     model1.name = @"项林平";
     model1.phone = @"13732254511";
-    model1.address = @"打开就罚款的合法的合法的及合法进口的话费卡接收到的加班费安静的首发的开发和的撒发的数据库放";
+    model1.areaAddress = @"浙江省杭州市下城区";
+    model1.detailAddress = @"河东路25号河东社区18幢3单元203";
+    model1.isDefault = @(1);
     
     AddressModel *model2 = [AddressModel new];
+    model2.addressId = @"2";
     model2.name = @"项小朋友";
     model2.phone = @"13735525039";
-    model2.address = @"打开就罚款的合法的合法的及合法进口的话费卡接收到的加班费安静的首发的开发和的撒发的数据库放爱的饭卡大奖是开放";
+    model2.areaAddress = @"浙江省杭州市江干区";
+    model2.detailAddress = @"浙江工商大学金沙港生活区5幢512";
+    model2.isDefault = @(0);
     
     AddressModel *model3 = [AddressModel new];
+    model3.addressId = @"3";
     model3.name = @"项小盆友";
     model3.phone = @"13732254711";
-    model3.address = @"打开就罚款的合法的合法的及合法进口";
+    model3.areaAddress = @"浙江省金华市浦江县";
+    model3.detailAddress = @"檀溪镇项丰村38号";
+    model3.isDefault = @(0);
     
     _addressArray = [@[model1, model2, model3] mutableCopy];
     // Uncomment the following line to preserve selection between presentations.
@@ -44,6 +54,7 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"添加" style:UIBarButtonItemStylePlain target:self action:@selector(addAddress)];
+    //去掉返回按钮的文字
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@""
                                                                              style:UIBarButtonItemStylePlain
                                                                             target:self
@@ -63,7 +74,8 @@
     CGFloat height = 100.0;
     //根据地址长度调整cell高度
     AddressModel *tempModel = _addressArray[indexPath.row];
-    CGSize addressSize = [Util sizeOfText:tempModel.address width:SCREEN_WIDTH - 20.0 font:kSystemFont(13)];
+    NSString *addressString = [NSString stringWithFormat:@"%@%@", tempModel.areaAddress, tempModel.detailAddress];
+    CGSize addressSize = [Util sizeOfText:addressString width:SCREEN_WIDTH - 20.0 font:kSystemFont(13)];
     height += addressSize.height;
     return height;
 }
@@ -74,13 +86,17 @@
     if (!cell) {
         cell = [[DeliveryAddressCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
+    cell.delegate = self;
     AddressModel *tempModel = _addressArray[indexPath.row];
+    [cell initModel:tempModel];
     cell.nameLabel.text = tempModel.name;
     cell.phoneLabel.text = tempModel.phone;
-    cell.addressLabel.text = tempModel.address;
-    
-    // Configure the cell...
-    
+    cell.addressLabel.text = [NSString stringWithFormat:@"%@%@", tempModel.areaAddress, tempModel.detailAddress];
+    if ([tempModel.isDefault integerValue] == 1) {
+        cell.enableButton.selected = YES;
+    } else {
+        cell.enableButton.selected = NO;
+    }
     return cell;
 }
 
@@ -117,6 +133,33 @@
     return YES;
 }
 */
+
+#pragma mark - DeliveryAddressCellDelegate
+- (void)addressSetDefault:(AddressModel *)model {
+    for (AddressModel *tempModel in _addressArray) {
+        if ([tempModel.addressId isEqual:model.addressId]) {
+            tempModel.isDefault = @(1);
+        } else {
+            tempModel.isDefault = @(0);
+        }
+    }
+    [self.tableView reloadData];
+}
+- (void)addressDidClickEdit:(AddressModel *)model {
+    AddAddressViewController *addAddressViewController = [[UIStoryboard storyboardWithName:@"PersonalCenter" bundle:nil] instantiateViewControllerWithIdentifier:@"AddAddressView"];
+    addAddressViewController.addressModel = model;
+    [self.navigationController pushViewController:addAddressViewController animated:YES];
+}
+- (void)addressDidClickDelete:(AddressModel *)model {
+    __weak DeliveryAddressTableViewController *weakSelf = self;
+    [[[XLBlockAlertView alloc] initWithTitle:nil message:@"确认要删除此收货地址吗？" block:^(NSInteger buttonIndex) {
+        __strong DeliveryAddressTableViewController *strongSelf = weakSelf;
+        if (buttonIndex == 1) {
+            [strongSelf.addressArray removeObject:model];
+            [strongSelf.tableView reloadData];
+        }
+    } cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil] show];
+}
 
 /*
 #pragma mark - Navigation

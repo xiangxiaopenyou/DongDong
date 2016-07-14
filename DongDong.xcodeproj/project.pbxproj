@@ -31,6 +31,13 @@
 		3D4CDC5A1D0520FC0026C9E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D4CDC591D0520FC0026C9E8 /* Assets.xcassets */; };
 		3D4CDC5D1D0520FC0026C9E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4CDC5B1D0520FC0026C9E8 /* LaunchScreen.storyboard */; };
 		3D4CDC6C1D0522210026C9E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4CDC691D0522210026C9E8 /* Main.storyboard */; };
+		3DAE933D1D3616B500D27E22 /* OrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAE933C1D3616B500D27E22 /* OrderModel.m */; };
+		3DAE93401D36198000D27E22 /* MyOrdersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAE933F1D36198000D27E22 /* MyOrdersViewController.m */; };
+		3DAE93461D36301000D27E22 /* PersonalCenterNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAE93451D36301000D27E22 /* PersonalCenterNavigationController.m */; };
+		3DAE934D1D36388800D27E22 /* OrderGoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAE934C1D36388800D27E22 /* OrderGoodsModel.m */; };
+		3DAE93531D37604D00D27E22 /* OrderGoodsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAE93521D37604D00D27E22 /* OrderGoodsView.m */; };
+		3DAE93551D3760E900D27E22 /* OrderGoodsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DAE93541D3760E900D27E22 /* OrderGoodsView.xib */; };
+		3DAE93581D376A6100D27E22 /* MyOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAE93571D376A6100D27E22 /* MyOrderCell.m */; };
 		3DB466651D2B956D00D26D2A /* DeliveryAddressTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB466641D2B956D00D26D2A /* DeliveryAddressTableViewController.m */; };
 		3DB466691D2B9C4C00D26D2A /* DeliveryAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB466681D2B9C4C00D26D2A /* DeliveryAddressCell.m */; };
 		3DB466731D2F85B900D26D2A /* AddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB466721D2F85B900D26D2A /* AddressModel.m */; };
@@ -96,6 +103,19 @@
 		3D4CDC5C1D0520FC0026C9E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D4CDC5E1D0520FC0026C9E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D4CDC691D0522210026C9E8 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		3DAE933B1D3616B500D27E22 /* OrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderModel.h; sourceTree = "<group>"; };
+		3DAE933C1D3616B500D27E22 /* OrderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderModel.m; sourceTree = "<group>"; };
+		3DAE933E1D36198000D27E22 /* MyOrdersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrdersViewController.h; sourceTree = "<group>"; };
+		3DAE933F1D36198000D27E22 /* MyOrdersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrdersViewController.m; sourceTree = "<group>"; };
+		3DAE93441D36301000D27E22 /* PersonalCenterNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PersonalCenterNavigationController.h; path = ../PersonalCenterNavigationController.h; sourceTree = "<group>"; };
+		3DAE93451D36301000D27E22 /* PersonalCenterNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PersonalCenterNavigationController.m; path = ../PersonalCenterNavigationController.m; sourceTree = "<group>"; };
+		3DAE934B1D36388800D27E22 /* OrderGoodsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderGoodsModel.h; sourceTree = "<group>"; };
+		3DAE934C1D36388800D27E22 /* OrderGoodsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderGoodsModel.m; sourceTree = "<group>"; };
+		3DAE93511D37604D00D27E22 /* OrderGoodsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderGoodsView.h; sourceTree = "<group>"; };
+		3DAE93521D37604D00D27E22 /* OrderGoodsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderGoodsView.m; sourceTree = "<group>"; };
+		3DAE93541D3760E900D27E22 /* OrderGoodsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderGoodsView.xib; sourceTree = "<group>"; };
+		3DAE93561D376A6100D27E22 /* MyOrderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderCell.h; sourceTree = "<group>"; };
+		3DAE93571D376A6100D27E22 /* MyOrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderCell.m; sourceTree = "<group>"; };
 		3DB466631D2B956D00D26D2A /* DeliveryAddressTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliveryAddressTableViewController.h; sourceTree = "<group>"; };
 		3DB466641D2B956D00D26D2A /* DeliveryAddressTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeliveryAddressTableViewController.m; sourceTree = "<group>"; };
 		3DB466671D2B9C4C00D26D2A /* DeliveryAddressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliveryAddressCell.h; sourceTree = "<group>"; };
@@ -222,6 +242,7 @@
 		3D27800B1D056FA1003A62FB /* PersonalCenter */ = {
 			isa = PBXGroup;
 			children = (
+				3DAE93471D36351B00D27E22 /* NavigationController */,
 				3DB466661D2B959100D26D2A /* Views */,
 				3D2780171D06AB75003A62FB /* PersonalCenter.storyboard */,
 				3DD1F3661D210C5F006246B9 /* PersonalCenterViewController.h */,
@@ -232,6 +253,8 @@
 				3DB466641D2B956D00D26D2A /* DeliveryAddressTableViewController.m */,
 				3DB4667D1D2F9EF100D26D2A /* AddAddressViewController.h */,
 				3DB4667E1D2F9EF100D26D2A /* AddAddressViewController.m */,
+				3DAE933E1D36198000D27E22 /* MyOrdersViewController.h */,
+				3DAE933F1D36198000D27E22 /* MyOrdersViewController.m */,
 			);
 			path = PersonalCenter;
 			sourceTree = "<group>";
@@ -346,6 +369,7 @@
 		3D4CDC661D0521840026C9E8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3DAE933A1D36169E00D27E22 /* OrderModel */,
 				3DB466701D2F858F00D26D2A /* AddressModel */,
 				3DD1F3731D2A2911006246B9 /* MessageModel */,
 				3D36561A1D1CE06800273DF3 /* CartGoodsModel */,
@@ -373,6 +397,26 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		3DAE933A1D36169E00D27E22 /* OrderModel */ = {
+			isa = PBXGroup;
+			children = (
+				3DAE933B1D3616B500D27E22 /* OrderModel.h */,
+				3DAE933C1D3616B500D27E22 /* OrderModel.m */,
+				3DAE934B1D36388800D27E22 /* OrderGoodsModel.h */,
+				3DAE934C1D36388800D27E22 /* OrderGoodsModel.m */,
+			);
+			path = OrderModel;
+			sourceTree = "<group>";
+		};
+		3DAE93471D36351B00D27E22 /* NavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				3DAE93441D36301000D27E22 /* PersonalCenterNavigationController.h */,
+				3DAE93451D36301000D27E22 /* PersonalCenterNavigationController.m */,
+			);
+			path = NavigationController;
+			sourceTree = "<group>";
+		};
 		3DB466621D2B8A9900D26D2A /* ThirdLibs */ = {
 			isa = PBXGroup;
 			children = (
@@ -392,6 +436,11 @@
 				3DB466781D2F9B2F00D26D2A /* WriteDetailAddressCell.m */,
 				3DB4667A1D2F9B4800D26D2A /* SetDefaultAddressCell.h */,
 				3DB4667B1D2F9B4800D26D2A /* SetDefaultAddressCell.m */,
+				3DAE93561D376A6100D27E22 /* MyOrderCell.h */,
+				3DAE93571D376A6100D27E22 /* MyOrderCell.m */,
+				3DAE93511D37604D00D27E22 /* OrderGoodsView.h */,
+				3DAE93521D37604D00D27E22 /* OrderGoodsView.m */,
+				3DAE93541D3760E900D27E22 /* OrderGoodsView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -532,6 +581,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D2780161D06AB66003A62FB /* ShoppingCart.storyboard in Resources */,
+				3DAE93551D3760E900D27E22 /* OrderGoodsView.xib in Resources */,
 				3D2780141D06AB31003A62FB /* Homepage.storyboard in Resources */,
 				3D4CDC6C1D0522210026C9E8 /* Main.storyboard in Resources */,
 				3D27801D1D06AC74003A62FB /* LoginAndRegister.storyboard in Resources */,
@@ -616,6 +666,7 @@
 				3D277FF01D0548C3003A62FB /* BaseModel.m in Sources */,
 				3D277FFE1D054D45003A62FB /* UIImage+ResizeMagick.m in Sources */,
 				3DB466651D2B956D00D26D2A /* DeliveryAddressTableViewController.m in Sources */,
+				3DAE933D1D3616B500D27E22 /* OrderModel.m in Sources */,
 				3DD1F36E1D239CB3006246B9 /* MessageTableViewController.m in Sources */,
 				3D36561D1D1CE07B00273DF3 /* CartGoodsModel.m in Sources */,
 				3DDDF2931D138B8D00DA106A /* ShoppingCartViewController.m in Sources */,
@@ -625,13 +676,18 @@
 				3D277FFD1D054D45003A62FB /* UIImage+ImageEffects.m in Sources */,
 				3DB4667C1D2F9B4800D26D2A /* SetDefaultAddressCell.m in Sources */,
 				3DB466791D2F9B2F00D26D2A /* WriteDetailAddressCell.m in Sources */,
+				3DAE93401D36198000D27E22 /* MyOrdersViewController.m in Sources */,
 				3DB466731D2F85B900D26D2A /* AddressModel.m in Sources */,
 				3D277FED1D0542C2003A62FB /* BaseRequest.m in Sources */,
+				3DAE93531D37604D00D27E22 /* OrderGoodsView.m in Sources */,
 				3DDDF25C1D10E52F00DA106A /* HomepageViewController.m in Sources */,
 				3D277FE71D052B3D003A62FB /* RequestManager.m in Sources */,
 				3DD1F3721D2A13B7006246B9 /* MessageCell.m in Sources */,
 				3DD1F3761D2A2925006246B9 /* MessageModel.m in Sources */,
+				3DAE934D1D36388800D27E22 /* OrderGoodsModel.m in Sources */,
+				3DAE93461D36301000D27E22 /* PersonalCenterNavigationController.m in Sources */,
 				3D277FF71D054D2E003A62FB /* XLBlockAlertView.m in Sources */,
+				3DAE93581D376A6100D27E22 /* MyOrderCell.m in Sources */,
 				3D3656191D1CD3CD00273DF3 /* ShoppingCartCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

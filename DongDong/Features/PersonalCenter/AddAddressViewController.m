@@ -22,7 +22,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"添加新地址";
+    if (self.addressModel) {
+        self.navigationItem.title = @"编辑收货地址";
+    } else {
+        self.navigationItem.title = @"添加新地址";
+    }
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(saveClick)];
 }
 

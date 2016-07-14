@@ -35,7 +35,7 @@
                                                                             action:nil];
     
     _messageButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _messageButton.frame = CGRectMake(0, 0, 40, 40);
+    _messageButton.frame = CGRectMake(0, 0, 46, 40);
     [_messageButton setImage:[UIImage imageNamed:@"message"] forState:UIControlStateNormal];
     [_messageButton setImage:[UIImage imageNamed:@"unread_message"] forState:UIControlStateSelected];
     [_messageButton addTarget:self action:@selector(messageClick) forControlEvents:UIControlEventTouchUpInside];

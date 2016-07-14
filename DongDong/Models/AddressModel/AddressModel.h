@@ -12,6 +12,8 @@
 @property (copy, nonatomic) NSString *addressId;
 @property (copy, nonatomic) NSString *name;
 @property (copy, nonatomic) NSString *phone;
-@property (copy, nonatomic) NSString *address;
+@property (copy, nonatomic) NSString *areaAddress;
+@property (copy, nonatomic) NSString *detailAddress;
+@property (strong, nonatomic) NSNumber *isDefault;
 
 @end

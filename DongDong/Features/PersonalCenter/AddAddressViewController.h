@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+@class AddressModel;
 
 @interface AddAddressViewController : UIViewController
+@property (strong, nonatomic) AddressModel *addressModel;
 
 @end
