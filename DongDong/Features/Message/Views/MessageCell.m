@@ -8,15 +8,16 @@
 
 #import "MessageCell.h"
 #import <UIImageView+AFNetworking.h>
-#import "Util.h"
+#import "UtilDefine.h"
 #import "CommonsDefines.h"
+#import <GJCFUitils.h>
 
 @implementation MessageCell
 - (void)setupContentWith:(MessageModel *)model {
-    [self.sectionButton setBackgroundImage:[Util imageWithColor:kRGBColor(186, 186, 186, 1.0)] forState:UIControlStateHighlighted];
+    [self.sectionButton setBackgroundImage:GJCFQuickImageByColorWithSize(kRGBColor(186, 186, 186, 1.0), CGSizeMake(1.0, 1.0)) forState:UIControlStateHighlighted];
     self.messageLabel.text = model.messageContent;
     self.timeLabel.text = model.messageDateString;
-    [self.goodsImageView setImageWithURL:[NSURL URLWithString:model.messageImageUrlString] placeholderImage:nil];
+    [self.goodsImageView setImageWithURL:XLURLFromString(model.messageImageUrlString) placeholderImage:nil];
 }
 - (void)awakeFromNib {
     [super awakeFromNib];

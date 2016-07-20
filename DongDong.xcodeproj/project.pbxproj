@@ -31,6 +31,8 @@
 		3D4CDC5A1D0520FC0026C9E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D4CDC591D0520FC0026C9E8 /* Assets.xcassets */; };
 		3D4CDC5D1D0520FC0026C9E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4CDC5B1D0520FC0026C9E8 /* LaunchScreen.storyboard */; };
 		3D4CDC6C1D0522210026C9E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4CDC691D0522210026C9E8 /* Main.storyboard */; };
+		3D53AA081D3DEEEC00E9E07D /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D53AA071D3DEEEC00E9E07D /* UserModel.m */; };
+		3D5C55401D38DB9F00FC0B25 /* UserCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D5C553F1D38DB9F00FC0B25 /* UserCenter.m */; };
 		3DAE933D1D3616B500D27E22 /* OrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAE933C1D3616B500D27E22 /* OrderModel.m */; };
 		3DAE93401D36198000D27E22 /* MyOrdersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAE933F1D36198000D27E22 /* MyOrdersViewController.m */; };
 		3DAE93461D36301000D27E22 /* PersonalCenterNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAE93451D36301000D27E22 /* PersonalCenterNavigationController.m */; };
@@ -103,6 +105,10 @@
 		3D4CDC5C1D0520FC0026C9E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D4CDC5E1D0520FC0026C9E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D4CDC691D0522210026C9E8 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		3D53AA061D3DEEEC00E9E07D /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		3D53AA071D3DEEEC00E9E07D /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
+		3D5C553E1D38DB9F00FC0B25 /* UserCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenter.h; sourceTree = "<group>"; };
+		3D5C553F1D38DB9F00FC0B25 /* UserCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenter.m; sourceTree = "<group>"; };
 		3DAE933B1D3616B500D27E22 /* OrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderModel.h; sourceTree = "<group>"; };
 		3DAE933C1D3616B500D27E22 /* OrderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderModel.m; sourceTree = "<group>"; };
 		3DAE933E1D36198000D27E22 /* MyOrdersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrdersViewController.h; sourceTree = "<group>"; };
@@ -116,6 +122,7 @@
 		3DAE93541D3760E900D27E22 /* OrderGoodsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderGoodsView.xib; sourceTree = "<group>"; };
 		3DAE93561D376A6100D27E22 /* MyOrderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderCell.h; sourceTree = "<group>"; };
 		3DAE93571D376A6100D27E22 /* MyOrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderCell.m; sourceTree = "<group>"; };
+		3DAE93591D38BF6000D27E22 /* UtilDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UtilDefine.h; sourceTree = "<group>"; };
 		3DB466631D2B956D00D26D2A /* DeliveryAddressTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliveryAddressTableViewController.h; sourceTree = "<group>"; };
 		3DB466641D2B956D00D26D2A /* DeliveryAddressTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeliveryAddressTableViewController.m; sourceTree = "<group>"; };
 		3DB466671D2B9C4C00D26D2A /* DeliveryAddressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliveryAddressCell.h; sourceTree = "<group>"; };
@@ -347,6 +354,7 @@
 				3D277FF11D054D16003A62FB /* XLKit */,
 				3D27800D1D05704D003A62FB /* CommonsDefines.h */,
 				3D27800E1D05704D003A62FB /* CommonsDefines.m */,
+				3DAE93591D38BF6000D27E22 /* UtilDefine.h */,
 				3D2780101D05746C003A62FB /* Util.h */,
 				3D2780111D05746C003A62FB /* Util.m */,
 			);
@@ -369,6 +377,7 @@
 		3D4CDC661D0521840026C9E8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3D5C553D1D38DB8500FC0B25 /* UserInfo */,
 				3DAE933A1D36169E00D27E22 /* OrderModel */,
 				3DB466701D2F858F00D26D2A /* AddressModel */,
 				3DD1F3731D2A2911006246B9 /* MessageModel */,
@@ -395,6 +404,17 @@
 				3D277FE11D052A9C003A62FB /* MainTabBarController.m */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		3D5C553D1D38DB8500FC0B25 /* UserInfo */ = {
+			isa = PBXGroup;
+			children = (
+				3D5C553E1D38DB9F00FC0B25 /* UserCenter.h */,
+				3D5C553F1D38DB9F00FC0B25 /* UserCenter.m */,
+				3D53AA061D3DEEEC00E9E07D /* UserModel.h */,
+				3D53AA071D3DEEEC00E9E07D /* UserModel.m */,
+			);
+			path = UserInfo;
 			sourceTree = "<group>";
 		};
 		3DAE933A1D36169E00D27E22 /* OrderModel */ = {
@@ -651,11 +671,13 @@
 			files = (
 				3DD1F36B1D2366A4006246B9 /* InformationEditTableViewController.m in Sources */,
 				3DDDF2991D17DFBE00DA106A /* GoodsListCell.m in Sources */,
+				3D53AA081D3DEEEC00E9E07D /* UserModel.m in Sources */,
 				3D277FEA1D053FDB003A62FB /* RequestCacher.m in Sources */,
 				3DB4667F1D2F9EF100D26D2A /* AddAddressViewController.m in Sources */,
 				3D4CDC521D0520FC0026C9E8 /* AppDelegate.m in Sources */,
 				3DB4668A1D339B5400D26D2A /* AreaObject.m in Sources */,
 				3D277FF81D054D2E003A62FB /* XLBlockActionSheet.m in Sources */,
+				3D5C55401D38DB9F00FC0B25 /* UserCenter.m in Sources */,
 				3D27800F1D05704D003A62FB /* CommonsDefines.m in Sources */,
 				3DDDF29D1D18CE9D00DA106A /* GoodsModel.m in Sources */,
 				3DB466871D3398BD00D26D2A /* AreaPickerView.m in Sources */,

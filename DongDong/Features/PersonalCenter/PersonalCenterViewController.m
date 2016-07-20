@@ -7,7 +7,6 @@
 //
 
 #import "PersonalCenterViewController.h"
-#import "Util.h"
 #import "CommonsDefines.h"
 #import "InformationEditTableViewController.h"
 #import "MyOrdersViewController.h"

@@ -8,7 +8,6 @@
 #import <UIKit/UIKit.h>
 
 extern NSString * const USERID;
-//extern NSString * const
 
 #define SCREEN_WIDTH CGRectGetWidth(UIScreen.mainScreen.bounds)
 #define SCREEN_HEIGHT CGRectGetHeight(UIScreen.mainScreen.bounds)

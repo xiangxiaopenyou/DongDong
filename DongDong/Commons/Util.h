@@ -10,14 +10,20 @@
 #import <UIKit/UIKit.h>
 
 @interface Util : NSObject
-+ (BOOL)isEmpty:(id)sender;
-+ (BOOL)validatePhone:(NSString *)phone;
+#pragma mark - System
++ (CGFloat)appVersion;
++ (CGFloat)currentSystemVersion;
++ (BOOL)cameraAvailable;
++ (BOOL)canSendSMS;
++ (BOOL)canMakePhoneCall;
++ (BOOL)isAppCameraAccessAuthorized;
++ (BOOL)isAppPhotoLibraryAccessAuthorized;
+
+#pragma mark - Cache
++ (BOOL)isNullObject:(id)anObject;
+
 + (NSURL *)urlWithString:(NSString *)urlString;
-+ (NSString *)compareDate:(NSDate *)date;
-+ (NSString *)dateToString:(NSDate *)date;
-+ (NSDate *)stringToDate:(NSString *)dateString;
 + (NSString *)numberString:(CGFloat)floatNumber;
-+ (UIImage *)imageWithColor:(UIColor *)color;
 + (CGSize)sizeOfText:(NSString *)text width:(CGFloat)width font:(UIFont *)font;
 
 @end

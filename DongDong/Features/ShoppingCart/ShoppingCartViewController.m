@@ -10,7 +10,7 @@
 #import "ShoppingCartCell.h"
 #import "CartGoodsModel.h"
 #import "CommonsDefines.h"
-#import "Util.h"
+#import "UtilDefine.h"
 #import <Masonry.h>
 
 @interface ShoppingCartViewController ()<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
@@ -138,7 +138,7 @@
         price += ([tempModel.goodsPrice floatValue] * [tempModel.goodsQuantity integerValue]);
         quantity += [tempModel.goodsQuantity integerValue];
     }
-    self.totalPriceLabel.text = [NSString stringWithFormat:@"￥%@", [Util numberString:price]];
+    self.totalPriceLabel.text = [NSString stringWithFormat:@"￥%@", XLStringFromFloat(price)];
     if (quantity > 0) {
         [self.deleteOrBalanceButton setTitle:[NSString stringWithFormat:@"结算(%@)", @(quantity)] forState:UIControlStateNormal];
     } else {

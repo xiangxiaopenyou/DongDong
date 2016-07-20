@@ -8,5 +8,6 @@ pod 'JSONModel'
 pod 'SVProgressHUD'
 pod 'OpenShare'
 pod 'SDCycleScrollView'
+pod 'GJCFUitils'
 end 
 

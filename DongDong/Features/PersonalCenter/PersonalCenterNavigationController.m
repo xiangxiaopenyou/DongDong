@@ -7,11 +7,8 @@
 //
 
 #import "PersonalCenterNavigationController.h"
-#import "Util.h"
-#import "CommonsDefines.h"
 
 @interface PersonalCenterNavigationController ()<UINavigationControllerDelegate>
-@property (strong, nonatomic) UIImage *shadowImage;
 
 @end
 
@@ -20,7 +17,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _shadowImage = self.navigationController.navigationBar.shadowImage;
     self.delegate = self;
 }
 

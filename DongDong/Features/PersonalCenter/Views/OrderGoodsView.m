@@ -8,7 +8,7 @@
 
 #import "OrderGoodsView.h"
 #import <UIImageView+AFNetworking.h>
-#import "Util.h"
+#import "UtilDefine.h"
 
 @implementation OrderGoodsView
 
@@ -24,8 +24,8 @@
     self.goodsSizeLabel.text = [NSString stringWithFormat:@"尺寸:%@", model.goodsSize];
     self.goodsColorLabel.text = [NSString stringWithFormat:@"颜色:%@", model.goodsColor];
     self.goodsQuantityLabel.text = [NSString stringWithFormat:@"x%@", model.goodsQuantity];
-    self.goodsPriceLabel.text = [NSString stringWithFormat:@"￥%@", [Util numberString:[model.goodsPrice floatValue]]];
-    [self.goodsImageView setImageWithURL:[Util urlWithString:model.goodsMainImage] placeholderImage:nil];
+    self.goodsPriceLabel.text = [NSString stringWithFormat:@"￥%@", XLStringFromFloat([model.goodsPrice floatValue])];
+    [self.goodsImageView setImageWithURL:XLURLFromString(model.goodsMainImage) placeholderImage:nil];
 }
 
 @end

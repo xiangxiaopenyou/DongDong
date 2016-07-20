@@ -11,8 +11,9 @@
 #import "AddressModel.h"
 #import "DeliveryAddressCell.h"
 #import "CommonsDefines.h"
-#import "Util.h"
+#import "UtilDefine.h"
 #import "XLBlockAlertView.h"
+#import <GJCFUitils.h>
 
 @interface DeliveryAddressTableViewController ()<DeliveryAddressCellDelegate>
 @property (strong, nonatomic) NSMutableArray *addressArray;
@@ -75,7 +76,7 @@
     //根据地址长度调整cell高度
     AddressModel *tempModel = _addressArray[indexPath.row];
     NSString *addressString = [NSString stringWithFormat:@"%@%@", tempModel.areaAddress, tempModel.detailAddress];
-    CGSize addressSize = [Util sizeOfText:addressString width:SCREEN_WIDTH - 20.0 font:kSystemFont(13)];
+    CGSize addressSize = XLSizeOfText(addressString, SCREEN_WIDTH - 20.0, kSystemFont(13));
     height += addressSize.height;
     return height;
 }
@@ -151,12 +152,11 @@
     [self.navigationController pushViewController:addAddressViewController animated:YES];
 }
 - (void)addressDidClickDelete:(AddressModel *)model {
-    __weak DeliveryAddressTableViewController *weakSelf = self;
+    GJCFWeakSelf weakSelf = self;
     [[[XLBlockAlertView alloc] initWithTitle:nil message:@"确认要删除此收货地址吗？" block:^(NSInteger buttonIndex) {
-        __strong DeliveryAddressTableViewController *strongSelf = weakSelf;
         if (buttonIndex == 1) {
-            [strongSelf.addressArray removeObject:model];
-            [strongSelf.tableView reloadData];
+            [weakSelf.addressArray removeObject:model];
+            [weakSelf.tableView reloadData];
         }
     } cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil] show];
 }

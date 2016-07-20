@@ -7,7 +7,7 @@
 //
 
 #import "MyOrderCell.h"
-#import "Util.h"
+#import "UtilDefine.h"
 #import "CommonsDefines.h"
 #import "OrderGoodsModel.h"
 #import "OrderGoodsView.h"
@@ -16,7 +16,7 @@
 
 - (void)setupContentWith:(OrderModel *)model {
     self.orderNumberLabel.text = [NSString stringWithFormat:@"订单号:%@", model.orderNumber];
-    NSString *price = [NSString stringWithFormat:@"￥%@", [Util numberString:[model.orderPrice floatValue]]];
+    NSString *price = [NSString stringWithFormat:@"￥%@", XLStringFromFloat([model.orderPrice floatValue])];
     NSString *priceString = [NSString stringWithFormat:@"合计:%@", price];
     NSMutableAttributedString *priceMutableString = [[NSMutableAttributedString alloc] initWithString:priceString];
     [priceMutableString addAttributes:@{NSFontAttributeName : kSystemFont(15)} range:NSMakeRange(3, price.length)];

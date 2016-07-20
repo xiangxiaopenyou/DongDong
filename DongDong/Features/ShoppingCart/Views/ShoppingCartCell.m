@@ -8,7 +8,7 @@
 
 #import "ShoppingCartCell.h"
 #import <UIImageView+AFNetworking.h>
-#import "Util.h"
+#import "UtilDefine.h"
 @interface ShoppingCartCell()
 @property (copy, nonatomic) selectBlock selectedBlock;
 @property (copy, nonatomic) editQuantityBlock editBlock;
@@ -19,8 +19,8 @@
     self.goodsSize.text = [NSString stringWithFormat:@"尺寸:%@", model.goodsSize];
     self.goodsColor.text = [NSString stringWithFormat:@"颜色:%@", model.goodsColor];
     self.goodsQuantity.text = [NSString stringWithFormat:@"x%@", model.goodsQuantity];
-    self.goodsPrice.text = [NSString stringWithFormat:@"￥%@", [Util numberString:[model.goodsPrice floatValue]]];
-    [self.goodsImage setImageWithURL:[Util urlWithString:model.goodsMainImageUrl] placeholderImage:nil];
+    self.goodsPrice.text = [NSString stringWithFormat:@"￥%@", XLStringFromFloat([model.goodsPrice floatValue])];
+    [self.goodsImage setImageWithURL:XLURLFromString(model.goodsMainImageUrl) placeholderImage:nil];
     self.editQuantityLabel.text = [NSString stringWithFormat:@"%@", model.goodsQuantity];
 }
 
