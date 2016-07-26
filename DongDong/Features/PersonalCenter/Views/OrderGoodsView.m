@@ -8,7 +8,6 @@
 
 #import "OrderGoodsView.h"
 #import <UIImageView+AFNetworking.h>
-#import "UtilDefine.h"
 
 @implementation OrderGoodsView
 

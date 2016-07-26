@@ -9,6 +9,7 @@
 #import "MessageTableViewController.h"
 #import "MessageCell.h"
 #import "MessageModel.h"
+#import <Masonry.h>
 
 @interface MessageTableViewController ()
 @property (strong, nonatomic) NSMutableArray *messageArray;
@@ -56,7 +57,23 @@
     [cell setupContentWith:_messageArray[indexPath.row]];
     return cell;
 }
-
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return _messageArray.count == 0 ? 170 : 0;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *headerView = [[UIView alloc] init];
+    headerView.backgroundColor = [UIColor clearColor];
+    UILabel *emptyLabel = [[UILabel alloc] init];
+    emptyLabel.font = kSystemFont(14);
+    emptyLabel.textColor = kHexRGBColorWithAlpha(0x8c8c8c, 1.0);
+    emptyLabel.text = kHaveNoMessage;
+    [headerView addSubview:emptyLabel];
+    [emptyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(headerView);
+        make.bottom.equalTo(headerView.mas_bottom);
+    }];
+    return headerView;
+}
 
 /*
 // Override to support conditional editing of the table view.

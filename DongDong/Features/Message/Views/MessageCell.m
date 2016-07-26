@@ -8,8 +8,6 @@
 
 #import "MessageCell.h"
 #import <UIImageView+AFNetworking.h>
-#import "UtilDefine.h"
-#import "CommonsDefines.h"
 #import <GJCFUitils.h>
 
 @implementation MessageCell

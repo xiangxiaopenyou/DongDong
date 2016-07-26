@@ -7,12 +7,14 @@
 //
 
 #import "HomepageViewController.h"
-#import "CommonsDefines.h"
-#import <UIImageView+AFNetworking.h>
-#import <SDCycleScrollView.h>
 #import "GoodsListCell.h"
 #import "GoodsModel.h"
 #import "MessageTableViewController.h"
+#import "GoodsDetailViewController.h"
+
+#import <UIImageView+AFNetworking.h>
+#import <SDCycleScrollView.h>
+#import <GJCFUitils.h>
 
 @interface HomepageViewController ()<UITableViewDelegate, UITableViewDataSource, SDCycleScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -28,19 +30,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = MAIN_BACKGROUND_COLOR;
-    self.navigationItem.title = @"咚咚";
+    self.navigationItem.title = kAppName;
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@""
                                                                              style:UIBarButtonItemStylePlain
                                                                             target:self
                                                                             action:nil];
-    
-    _messageButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _messageButton.frame = CGRectMake(0, 0, 46, 40);
-    [_messageButton setImage:[UIImage imageNamed:@"message"] forState:UIControlStateNormal];
-    [_messageButton setImage:[UIImage imageNamed:@"unread_message"] forState:UIControlStateSelected];
-    [_messageButton addTarget:self action:@selector(messageClick) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_messageButton];
-    _messageButton.imageEdgeInsets = UIEdgeInsetsMake(0, 19, 0, - 19);
+    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.messageButton];
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
     
     GoodsModel *model1 = [GoodsModel new];
@@ -71,6 +66,9 @@
     _gooodsArray = [@[model1, model2, model3, model4, model5] mutableCopy];
     [self initTableHeaderView];
 }
+/**
+ *  TableHeaderView
+ */
 - (void)initTableHeaderView {
     NSArray *imageUrlArray = @[@"http://img1.3lian.com/img013/v4/57/d/4.jpg"
                                , @"http://img1.3lian.com/img013/v4/57/d/7.jpg"
@@ -86,6 +84,21 @@
     bannerView.clipsToBounds = YES;
     bannerView.delegate = self;
     [self.tableView.tableHeaderView addSubview:bannerView];
+}
+/**
+ *  消息按钮
+ */
+- (UIButton *)messageButton {
+    if (!_messageButton) {
+        _messageButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _messageButton.frame = CGRectMake(0, 0, 46, 40);
+        [_messageButton setImage:[UIImage imageNamed:@"message"] forState:UIControlStateNormal];
+        [_messageButton setImage:[UIImage imageNamed:@"unread_message"] forState:UIControlStateSelected];
+        [_messageButton addTarget:self action:@selector(messageClick) forControlEvents:UIControlEventTouchUpInside];
+        _messageButton.imageEdgeInsets = UIEdgeInsetsMake(0, 19, 0, - 19);
+    }
+    return _messageButton;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -113,8 +126,11 @@
     } else {
         rightModel = _gooodsArray[indexPath.row * 2 + 1];
     }
+    GJCFWeakSelf weakSelf = self;
     [cell goodsClickBlock:^(GoodsModel *model) {
         NSLog(@"name: %@\nprice: %@", model.goodsName, model.goodsPrice);
+        GoodsDetailViewController *detailViewController = [[UIStoryboard storyboardWithName:@"Homepage" bundle:nil] instantiateViewControllerWithIdentifier:@"GoodsDetailView"];
+        [weakSelf.navigationController pushViewController:detailViewController animated:YES];
     }];
     [cell setupContentWith:_gooodsArray[indexPath.row * 2] rightModel:rightModel];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -150,6 +166,8 @@
 - (void)messageClick {
     MessageTableViewController *messageView = [[UIStoryboard storyboardWithName:@"Message" bundle:nil] instantiateViewControllerWithIdentifier:@"MessageView"];
     [self.navigationController pushViewController:messageView animated:YES];
+//    ChoosePaymentFormTableViewController *view = [[UIStoryboard storyboardWithName:@"Homepage" bundle:nil] instantiateViewControllerWithIdentifier:@"PaymentView"];
+//    [self.navigationController pushViewController:view animated:YES];
 }
 /*
 // In a storyboard-based application, you will often want to do a little preparation before navigation

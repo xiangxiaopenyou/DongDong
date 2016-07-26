@@ -7,8 +7,6 @@
 //
 
 #import "MyOrderCell.h"
-#import "UtilDefine.h"
-#import "CommonsDefines.h"
 #import "OrderGoodsModel.h"
 #import "OrderGoodsView.h"
 

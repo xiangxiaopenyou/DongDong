@@ -10,7 +10,7 @@
 #import "OrderModel.h"
 #import "OrderGoodsModel.h"
 #import "MyOrderCell.h"
-#import "CommonsDefines.h"
+
 #import <Masonry.h>
 
 @interface MyOrdersViewController ()<UITableViewDelegate, UITableViewDataSource>
@@ -29,7 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"我的订单";
+    self.navigationItem.title = kMyOrder;
     [self setButtonsSelected:self.orderType];
     [self setModelData];
 }

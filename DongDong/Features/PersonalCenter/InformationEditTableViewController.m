@@ -7,7 +7,6 @@
 //
 
 #import "InformationEditTableViewController.h"
-#import "CommonsDefines.h"
 #import "DeliveryAddressTableViewController.h"
 
 @interface InformationEditTableViewController ()
@@ -25,11 +24,24 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.navigationItem.title = @"个人信息";
+    self.navigationItem.title = kPersonalInformation;
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@""
                                                                              style:UIBarButtonItemStylePlain
                                                                             target:self
                                                                             action:nil];
+}
+
+/**
+ *  头像
+ */
+-  (UIImageView *)portraintImageView {
+    if (!_portraintImageView) {
+        _portraintImageView = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 50, 5, 36, 36)];
+        _portraintImageView.layer.masksToBounds = YES;
+        _portraintImageView.layer.cornerRadius = 18.0;
+        _portraintImageView.backgroundColor = [UIColor redColor];
+    }
+    return _portraintImageView;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,20 +66,14 @@
     cell.textLabel.font = kSystemFont(14);
     cell.textLabel.textColor = kHexRGBColorWithAlpha(0x8c8c8c, 1.0);
     cell.detailTextLabel.font = kSystemFont(14);
-    cell.detailTextLabel.textColor = kHexRGBColorWithAlpha(0x494e52, 1.0);
+    cell.detailTextLabel.textColor = MAIN_TEXT_COLOR;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     if (indexPath.section == 0) {
         switch (indexPath.row) {
             case 0:{
                 cell.accessoryType = UITableViewCellAccessoryNone;
                 cell.textLabel.text = @"修改头像";
-                if (!_portraintImageView) {
-                    _portraintImageView = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 50, 5, 36, 36)];
-                    _portraintImageView.layer.masksToBounds = YES;
-                    _portraintImageView.layer.cornerRadius = 18.0;
-                    _portraintImageView.backgroundColor = [UIColor redColor];
-                }
-                [cell.contentView addSubview:_portraintImageView];
+                [cell.contentView addSubview:self.portraintImageView];
                 
                 UILabel *line = [[UILabel alloc] initWithFrame:CGRectMake(0, 45.5, SCREEN_WIDTH, 0.5)];
                 line.backgroundColor = BREAK_LINE_COLOR;

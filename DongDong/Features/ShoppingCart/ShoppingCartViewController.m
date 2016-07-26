@@ -9,9 +9,8 @@
 #import "ShoppingCartViewController.h"
 #import "ShoppingCartCell.h"
 #import "CartGoodsModel.h"
-#import "CommonsDefines.h"
-#import "UtilDefine.h"
 #import <Masonry.h>
+#import <GJCFUitils.h>
 
 @interface ShoppingCartViewController ()<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -112,6 +111,16 @@
     self.selectedDeleteGoodsArray = [[NSMutableArray alloc] init];
     [self calculatePriceAndQuantity];
     
+    
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:self.editButton];
+    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    negativeSpacer.width = - 10;
+    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:negativeSpacer, rightItem, nil];
+}
+/**
+ *  编辑按钮
+ */
+- (UIButton *)editButton {
     if (!_editButton) {
         _editButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _editButton.frame = CGRectMake(0, 0, 40, 40);
@@ -121,7 +130,7 @@
         [_editButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_editButton addTarget:self action:@selector(editButtonClick) forControlEvents:UIControlEventTouchUpInside];
     }
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_editButton];
+    return _editButton;
 }
 /**
  *  计算价格和数量，及时改变价格和数量
@@ -192,31 +201,32 @@
             cell.selectedButton.selected = NO;
         }
     }
+    GJCFWeakSelf weakSelf = self;
     //选择和取消选择商品block
     [cell goodsSelect:^(BOOL state) {
         if (state) {
             if (_editButton.selected) {
-                [self.selectedDeleteGoodsArray addObject:tempModel];
-                if (self.selectedDeleteGoodsArray.count == self.cartGoodsArray.count) {
-                    self.selectAllButton.selected = YES;
+                [weakSelf.selectedDeleteGoodsArray addObject:tempModel];
+                if (weakSelf.selectedDeleteGoodsArray.count == weakSelf.cartGoodsArray.count) {
+                    weakSelf.selectAllButton.selected = YES;
                 }
             } else {
-                [self.selectedGoodsArray addObject:tempModel];
-                if (self.selectedGoodsArray.count == self.cartGoodsArray.count) {
-                    self.selectAllButton.selected = YES;
+                [weakSelf.selectedGoodsArray addObject:tempModel];
+                if (weakSelf.selectedGoodsArray.count == self.cartGoodsArray.count) {
+                    weakSelf.selectAllButton.selected = YES;
                 }
             }
             
         } else {
             if (_editButton.selected) {
-                [self.selectedDeleteGoodsArray removeObject:tempModel];
-                if (self.selectAllButton.selected) {
-                    self.selectAllButton.selected = NO;
+                [weakSelf.selectedDeleteGoodsArray removeObject:tempModel];
+                if (weakSelf.selectAllButton.selected) {
+                    weakSelf.selectAllButton.selected = NO;
                 }
             } else {
-                [self.selectedGoodsArray removeObject:tempModel];
-                if (self.selectAllButton.selected) {
-                    self.selectAllButton.selected = NO;
+                [weakSelf.selectedGoodsArray removeObject:tempModel];
+                if (weakSelf.selectAllButton.selected) {
+                    weakSelf.selectAllButton.selected = NO;
                 }
             }
             
@@ -279,7 +289,7 @@
     }];
     
     UILabel *emptyLabel = [[UILabel alloc] init];
-    emptyLabel.text = @"空空如也~";
+    emptyLabel.text = kEmptyShoppingCart;
     emptyLabel.font = kSystemFont(15);
     emptyLabel.textColor = kHexRGBColorWithAlpha(0x8c8c8c, 1.0);
     [emptyLabel sizeToFit];

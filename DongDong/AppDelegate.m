@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "CommonsDefines.h"
 
 @interface AppDelegate ()
 

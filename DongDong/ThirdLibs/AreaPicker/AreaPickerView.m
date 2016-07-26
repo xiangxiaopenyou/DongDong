@@ -7,7 +7,6 @@
 //
 
 #import "AreaPickerView.h"
-#import "CommonsDefines.h"
 @interface AreaPickerView()<UIPickerViewDelegate, UIPickerViewDataSource>
 @property (copy, nonatomic) areaChosePickerBlock pickerBlock;
 @property (strong, nonatomic) AreaObject *areaObject;

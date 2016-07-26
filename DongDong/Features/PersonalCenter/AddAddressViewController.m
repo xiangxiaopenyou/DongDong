@@ -23,9 +23,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     if (self.addressModel) {
-        self.navigationItem.title = @"编辑收货地址";
+        self.navigationItem.title = kEditAddress;
     } else {
-        self.navigationItem.title = @"添加新地址";
+        self.navigationItem.title = kAddNewAddress;
     }
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(saveClick)];
 }
@@ -68,18 +68,18 @@
             cell.textField.tag = indexPath.row + 1000;
             switch (indexPath.row) {
                 case 0:{
-                    cell.textField.placeholder = @"收货人";
+                    cell.textField.placeholder = kReceiver;
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 }
                     break;
                 case 1:{
-                    cell.textField.placeholder = @"联系电话";
+                    cell.textField.placeholder = kPhoneNumber;
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     cell.textField.keyboardType = UIKeyboardTypeNumberPad;
                 }
                     break;
                 case 2:{
-                    cell.textField.text = @"所在地区";
+                    cell.textField.text = kAddressArea;
                     cell.textField.enabled = NO;
                     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                 }

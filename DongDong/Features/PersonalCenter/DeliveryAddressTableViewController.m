@@ -10,8 +10,6 @@
 #import "AddAddressViewController.h"
 #import "AddressModel.h"
 #import "DeliveryAddressCell.h"
-#import "CommonsDefines.h"
-#import "UtilDefine.h"
 #import "XLBlockAlertView.h"
 #import <GJCFUitils.h>
 
@@ -24,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"管理收货地址";
+    self.navigationItem.title = kDeliveryAddress;
     AddressModel *model1 = [AddressModel new];
     model1.addressId = @"1";
     model1.name = @"项林平";
@@ -153,7 +151,7 @@
 }
 - (void)addressDidClickDelete:(AddressModel *)model {
     GJCFWeakSelf weakSelf = self;
-    [[[XLBlockAlertView alloc] initWithTitle:nil message:@"确认要删除此收货地址吗？" block:^(NSInteger buttonIndex) {
+    [[[XLBlockAlertView alloc] initWithTitle:nil message:kChooseToDeleteAddress block:^(NSInteger buttonIndex) {
         if (buttonIndex == 1) {
             [weakSelf.addressArray removeObject:model];
             [weakSelf.tableView reloadData];

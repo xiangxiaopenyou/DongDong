@@ -8,7 +8,6 @@
 
 #import "GoodsListCell.h"
 #import <UIImageView+AFNetworking.h>
-#import "UtilDefine.h"
 @interface GoodsListCell()
 @property (strong, nonatomic) GoodsModel *tempLeftModel;
 @property (strong, nonatomic) GoodsModel *tempRightModel;

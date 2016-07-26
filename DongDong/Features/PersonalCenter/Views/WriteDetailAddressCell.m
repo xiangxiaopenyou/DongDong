@@ -7,7 +7,6 @@
 //
 
 #import "WriteDetailAddressCell.h"
-#import "CommonsDefines.h"
 
 @implementation WriteDetailAddressCell
 

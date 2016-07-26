@@ -8,7 +8,6 @@
 
 #import "ShoppingCartCell.h"
 #import <UIImageView+AFNetworking.h>
-#import "UtilDefine.h"
 @interface ShoppingCartCell()
 @property (copy, nonatomic) selectBlock selectedBlock;
 @property (copy, nonatomic) editQuantityBlock editBlock;

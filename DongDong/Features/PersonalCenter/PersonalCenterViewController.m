@@ -7,7 +7,6 @@
 //
 
 #import "PersonalCenterViewController.h"
-#import "CommonsDefines.h"
 #import "InformationEditTableViewController.h"
 #import "MyOrdersViewController.h"
 
@@ -73,20 +72,20 @@
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.textLabel.font = kSystemFont(14);
-    cell.textLabel.textColor = kHexRGBColorWithAlpha(0x494e52, 1.0);
+    cell.textLabel.textColor = MAIN_TEXT_COLOR;
     switch (indexPath.row) {
         case 0:{
-            cell.textLabel.text = @"我的收藏";
+            cell.textLabel.text = kMyCollection;
             cell.imageView.image = [UIImage imageNamed:@"collection"];
         }
             break;
         case 1:{
-            cell.textLabel.text = @"联系客服";
+            cell.textLabel.text = kContactCustomerService;
             cell.imageView.image = [UIImage imageNamed:@"phone"];
         }
             break;
         case 2:{
-            cell.textLabel.text = @"系统设置";
+            cell.textLabel.text = kSystemSetting;
             cell.imageView.image = [UIImage imageNamed:@"setting"];
         }
             break;
@@ -94,9 +93,9 @@
         default:
             break;
     }
-    UILabel *line = [[UILabel alloc] initWithFrame:CGRectMake(0, 44.5, SCREEN_WIDTH, 0.5)];
-    line.backgroundColor = BREAK_LINE_COLOR;
-    [cell addSubview:line];
+//    UILabel *line = [[UILabel alloc] initWithFrame:CGRectMake(0, 44.5, SCREEN_WIDTH, 0.5)];
+//    line.backgroundColor = BREAK_LINE_COLOR;
+//    [cell addSubview:line];
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -104,6 +103,20 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Remove seperator inset
+    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+        [cell setSeparatorInset:UIEdgeInsetsZero];
+    }
+    // Prevent the cell from inheriting the Table View's margin settings
+    if ([cell respondsToSelector:@selector(setPreservesSuperviewLayoutMargins:)]) {
+        [cell setPreservesSuperviewLayoutMargins:NO];
+    }
+    // Explictly set your cell's layout margins
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        [cell setLayoutMargins:UIEdgeInsetsZero];
+    }
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat y = scrollView.contentOffset.y;

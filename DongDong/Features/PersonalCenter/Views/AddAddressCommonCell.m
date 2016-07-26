@@ -7,7 +7,6 @@
 //
 
 #import "AddAddressCommonCell.h"
-#import "CommonsDefines.h"
 
 @implementation AddAddressCommonCell
 

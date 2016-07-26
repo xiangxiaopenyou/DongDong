@@ -7,8 +7,8 @@
 //
 
 #import "MainTabBarController.h"
-#import "CommonsDefines.h"
 #import "PersonalCenterNavigationController.h"
+#import "HomepageNavigationController.h"
 
 @interface MainTabBarController ()
 
@@ -38,13 +38,13 @@
     mineSelectedImage = [mineSelectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     //首页
     UIViewController *homepageViewController = [[UIStoryboard storyboardWithName:@"Homepage" bundle:nil] instantiateViewControllerWithIdentifier:@"HomepageView"];
-    [self setupChildControllerWith:homepageViewController normalImage:homepageImage selectedImage:homepageSelectedImage title:@"首页" isMine:NO];
+    [self setupChildControllerWith:homepageViewController normalImage:homepageImage selectedImage:homepageSelectedImage title:kHomepage index:0];
     //购物车
     UIViewController *shoppingCartViewController = [[UIStoryboard storyboardWithName:@"ShoppingCart" bundle:nil] instantiateViewControllerWithIdentifier:@"ShoppingCartView"];
-    [self setupChildControllerWith:shoppingCartViewController normalImage:shoppingCartImage selectedImage:shoppingCartSelectedImage title:@"购物车" isMine:NO];
+    [self setupChildControllerWith:shoppingCartViewController normalImage:shoppingCartImage selectedImage:shoppingCartSelectedImage title:kShoppingCart index:1];
     //我
     UIViewController *mineViewController = [[UIStoryboard storyboardWithName:@"PersonalCenter" bundle:nil] instantiateViewControllerWithIdentifier:@"MineView"];
-    [self setupChildControllerWith:mineViewController normalImage:mineImage selectedImage:mineSelectedImage title:@"我" isMine:YES];
+    [self setupChildControllerWith:mineViewController normalImage:mineImage selectedImage:mineSelectedImage title:kPersonalCenter index:2];
     
 }
 
@@ -53,9 +53,15 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)setupChildControllerWith:(UIViewController *)childViewController normalImage:(UIImage *)normalImage selectedImage:(UIImage *)selectedImage title:(NSString *)title isMine:(BOOL)isMine {
-    if (isMine) {
+- (void)setupChildControllerWith:(UIViewController *)childViewController normalImage:(UIImage *)normalImage selectedImage:(UIImage *)selectedImage title:(NSString *)title index:(NSInteger)index {
+    if (index == 2) {
         PersonalCenterNavigationController *navigationController = [[PersonalCenterNavigationController alloc] initWithRootViewController:childViewController];
+        childViewController.title = title;
+        childViewController.tabBarItem.image = normalImage;
+        childViewController.tabBarItem.selectedImage = selectedImage;
+        [self addChildViewController:navigationController];
+    } else if (index == 0) {
+        HomepageNavigationController *navigationController = [[HomepageNavigationController alloc] initWithRootViewController:childViewController];
         childViewController.title = title;
         childViewController.tabBarItem.image = normalImage;
         childViewController.tabBarItem.selectedImage = selectedImage;
