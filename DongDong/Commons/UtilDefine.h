@@ -43,27 +43,27 @@
 /**
  *  照相机是否可用
  */
-#define XLIsCameraAvailable [Util cameraAvailable];
+#define XLIsCameraAvailable [Util cameraAvailable]
 
 /**
  *  是否支持发短信
  */
-#define XLCanSendSMS [Util canSendSMS];
+#define XLCanSendSMS [Util canSendSMS]
 
 /**
  *  是否支持打电话
  */
-#define XLCanMakePhoneCall [Util canMakePhoneCall];
+#define XLCanMakePhoneCall [Util canMakePhoneCall]
 
 /**
  *  是否有权限访问相机
  */
-#define XLIsAppCameraAccessAuthorized [Util isAppCameraAccessAuthorized];
+#define XLIsAppCameraAccessAuthorized [Util isAppCameraAccessAuthorized]
 
 /**
  *  是否有权限访问相册
  */
-#define XLIsAppPhotoLibraryAccessAuthorized [Util isAppPhotoLibraryAccessAuthorized];
+#define XLIsAppPhotoLibraryAccessAuthorized [Util isAppPhotoLibraryAccessAuthorized]
 
 #pragma mark - Cache
 /**

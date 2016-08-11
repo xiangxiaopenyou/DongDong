@@ -31,6 +31,7 @@
     } else {
         [self setNavigationBarHidden:NO animated:animated];
     }
+    viewController.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
 }
 /*
 #pragma mark - Navigation

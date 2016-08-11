@@ -148,7 +148,7 @@
         }
         case 2:{
             
-            self.areaObject.city = self.areaArray[row];
+            self.areaObject.area = self.areaArray[row];
             break;
         }
             

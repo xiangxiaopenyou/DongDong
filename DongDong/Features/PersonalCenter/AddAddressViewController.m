@@ -56,6 +56,7 @@
             if (!cell) {
                 cell = [[WriteDetailAddressCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
             }
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             cell.textView.tag = 999;
             cell.delegate = self;
             return cell;

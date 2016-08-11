@@ -7,7 +7,6 @@
 //
 
 #import "OrderGoodsView.h"
-#import <UIImageView+AFNetworking.h>
 
 @implementation OrderGoodsView
 

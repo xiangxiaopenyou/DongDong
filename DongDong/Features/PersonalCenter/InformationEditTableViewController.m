@@ -8,8 +8,11 @@
 
 #import "InformationEditTableViewController.h"
 #import "DeliveryAddressTableViewController.h"
+#import "EditNicknameTableViewController.h"
+#import "XLBlockActionSheet.h"
+#import "XLBlockAlertView.h"
 
-@interface InformationEditTableViewController ()
+@interface InformationEditTableViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (strong, nonatomic) UIImageView *portraintImageView;
 
 @end
@@ -25,10 +28,6 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.navigationItem.title = kPersonalInformation;
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@""
-                                                                             style:UIBarButtonItemStylePlain
-                                                                            target:self
-                                                                            action:nil];
 }
 
 /**
@@ -39,7 +38,6 @@
         _portraintImageView = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 50, 5, 36, 36)];
         _portraintImageView.layer.masksToBounds = YES;
         _portraintImageView.layer.cornerRadius = 18.0;
-        _portraintImageView.backgroundColor = [UIColor redColor];
     }
     return _portraintImageView;
 }
@@ -47,6 +45,16 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+/**
+ *  头像选择（拍照或者相册选择）
+ */
+- (void)pickImageForAvatar:(UIImagePickerControllerSourceType)sourceType {
+    UIImagePickerController *pickerController = [[UIImagePickerController alloc] init];
+    pickerController.delegate = self;
+    pickerController.allowsEditing = YES;
+    pickerController.sourceType = sourceType;
+    [self presentViewController:pickerController animated:YES completion:nil];
 }
 
 #pragma mark - Table view data source
@@ -72,7 +80,7 @@
         switch (indexPath.row) {
             case 0:{
                 cell.accessoryType = UITableViewCellAccessoryNone;
-                cell.textLabel.text = @"修改头像";
+                cell.textLabel.text = kChangeAvatar;
                 [cell.contentView addSubview:self.portraintImageView];
                 
                 UILabel *line = [[UILabel alloc] initWithFrame:CGRectMake(0, 45.5, SCREEN_WIDTH, 0.5)];
@@ -81,7 +89,7 @@
             }
                 break;
             case 1:{
-                cell.textLabel.text = @"昵称";
+                cell.textLabel.text = kUserNickname;
                 cell.detailTextLabel.text = @"项小盆友";
             }
                 break;
@@ -90,7 +98,7 @@
                 break;
         }
     } else {
-        cell.textLabel.text = @"收货地址";
+        cell.textLabel.text = kDeliveryAddress;
     }
     
     return cell;
@@ -101,9 +109,35 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 0) {
-        
+        if (indexPath.row == 0) {
+            [[[XLBlockActionSheet alloc] initWithTitle:nil clickedBlock:^(NSInteger buttonIndex) {
+                if (buttonIndex == 1) {
+                    //拍照
+                    if (!XLIsCameraAvailable) {
+                        [SVProgressHUD showInfoWithStatus:kCameraNotAvailable];
+                        return;
+                    }
+                    if (!XLIsAppCameraAccessAuthorized) {
+                        [[[XLBlockAlertView alloc] initWithTitle:@"提示" message:kAppCameraAccessNotAuthorized block:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil] show];
+                        return;
+                    }
+                    [self pickImageForAvatar:UIImagePickerControllerSourceTypeCamera];
+                } else if (buttonIndex == 2) {
+                    //相册
+                    if (!XLIsAppPhotoLibraryAccessAuthorized) {
+                        [[[XLBlockAlertView alloc] initWithTitle:@"提示" message:kAppPhotoLibraryAccessNotAuthorized block:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil] show];
+                        return;
+                    }
+                    [self pickImageForAvatar:UIImagePickerControllerSourceTypePhotoLibrary];
+                }
+            } cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照", @"从手机相册选择", nil] showInView:self.view];
+        } else {
+            EditNicknameTableViewController *editNicknameView = [self.storyboard instantiateViewControllerWithIdentifier:@"EditNicknameView"];
+            editNicknameView.oldNickname = @"项小盆友";
+            [self.navigationController pushViewController:editNicknameView animated:YES];
+        }
     } else {
-        DeliveryAddressTableViewController *addressView = [[UIStoryboard storyboardWithName:@"PersonalCenter" bundle:nil] instantiateViewControllerWithIdentifier:@"DeliveryAddressView"];
+        DeliveryAddressTableViewController *addressView = [self.storyboard instantiateViewControllerWithIdentifier:@"DeliveryAddressView"];
         [self.navigationController pushViewController:addressView animated:YES];
     }
 }
@@ -141,6 +175,15 @@
     return YES;
 }
 */
+
+#pragma mark - UIImagePickerController Delegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    UIImage *resultImage = [info objectForKey:UIImagePickerControllerEditedImage];
+    if (resultImage) {
+        self.portraintImageView.image = resultImage;
+    }
+}
 
 /*
 #pragma mark - Navigation

@@ -15,11 +15,15 @@
 @property (strong, nonatomic) UIView *imageContainView;
 @property (strong, nonatomic) UIImageView *goodsImageView;
 @property (strong, nonatomic) UIScrollView *contentScrollView;
+@property (strong, nonatomic) UIView *colorView;
+@property (strong, nonatomic) UIView *sizeView;
 @property (strong, nonatomic) UIButton *addToShoppingCartButton;
 @property (strong, nonatomic) UIButton *buyNowButton;
 @property (strong, nonatomic) UILabel *priceLabel;
 @property (strong, nonatomic) UILabel *stockLabel;
 @property (strong, nonatomic) UIButton *closeButton;
+@property (copy, nonatomic) NSArray *arrayOfColor;
+@property (copy, nonatomic) NSArray *arrayOfSize;
 
 @end
 
@@ -28,6 +32,8 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.3];
+        _arrayOfColor = [colorArray copy];
+        _arrayOfSize = [sizeArray copy];
         [self setupContentView:colorArray size:sizeArray];
     }
     return self;
@@ -119,18 +125,18 @@
     CGFloat topOfView = 0;
     if (colorArray.count > 0) {
         //选择颜色区域
-        UIView *colorView  = [[UIView alloc] init];
-        [contentViewOfScroll addSubview:colorView];
+        _colorView  = [[UIView alloc] init];
+        [contentViewOfScroll addSubview:_colorView];
         
         UILabel *colorTitle = [[UILabel alloc] init];
         colorTitle.font = kSystemFont(12);
         colorTitle.textColor = MAIN_TEXT_COLOR;
         colorTitle.text = @"颜色";
         [colorTitle sizeToFit];
-        [colorView addSubview:colorTitle];
+        [_colorView addSubview:colorTitle];
         [colorTitle mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(colorView.mas_left).with.offset(10);
-            make.top.equalTo(colorView.mas_top).with.offset(10);
+            make.left.equalTo(_colorView.mas_left).with.offset(10);
+            make.top.equalTo(_colorView.mas_top).with.offset(10);
         }];
         CGFloat currentWidth = 10.0;
         CGFloat currentHeight = 6.0;
@@ -139,40 +145,42 @@
             CGSize size = [colorString sizeWithAttributes:@{NSFontAttributeName : kSystemFont(11)}];
             if (currentWidth + size.width + 20.0 > SCREEN_WIDTH) {
                 currentWidth = 10.0;
-                currentHeight += 22.0;
+                currentHeight += 34.0;
             }
             UIButton *colorButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            colorButton.tag = i + 1000;
             colorButton.titleLabel.font = kSystemFont(11);
             colorButton.layer.masksToBounds = YES;
-            colorButton.layer.cornerRadius = 2.0;
+            colorButton.layer.cornerRadius = 6.0;
             [colorButton setTitle:colorString forState:UIControlStateNormal];
             [colorButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
             [colorButton setTitleColor:MAIN_TEXT_COLOR forState:UIControlStateNormal];
             [colorButton setBackgroundImage:GJCFQuickImageByColorWithSize(NAVIGATIONBAR_COLOR, CGSizeMake(1, 1)) forState:UIControlStateSelected];
             [colorButton setBackgroundImage:GJCFQuickImageByColorWithSize(kHexRGBColorWithAlpha(0xf5f5f5, 1.0), CGSizeMake(1, 1)) forState:UIControlStateNormal];
-            [colorView addSubview:colorButton];
+            [colorButton addTarget:self action:@selector(colorClick:) forControlEvents:UIControlEventTouchUpInside];
+            [_colorView addSubview:colorButton];
             [colorButton mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(colorView.mas_left).with.offset(currentWidth);
+                make.left.equalTo(_colorView.mas_left).with.offset(currentWidth);
                 make.top.equalTo(colorTitle.mas_bottom).with.offset(currentHeight);
-                make.height.mas_offset(16);
+                make.height.mas_offset(28);
                 make.width.mas_offset(size.width + 20);
             }];
             currentWidth += size.width + 30;
         }
-        [colorView mas_makeConstraints:^(MASConstraintMaker *make) {
+        [_colorView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(contentViewOfScroll.mas_top).with.offset(topOfView);
             make.left.equalTo(contentViewOfScroll.mas_left);
             make.right.equalTo(contentViewOfScroll.mas_right);
-            make.height.mas_offset(50 + currentHeight);
+            make.height.mas_offset(62 + currentHeight);
         }];
-        topOfView += 50 + currentHeight;
+        topOfView += 62 + currentHeight;
         
         UILabel *line = [[UILabel alloc] init];
         line.backgroundColor = BREAK_LINE_COLOR;
-        [colorView addSubview:line];
+        [_colorView addSubview:line];
         [line mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.equalTo(colorView.mas_bottom);
-            make.left.equalTo(colorView.mas_left).with.offset(10);
+            make.bottom.equalTo(_colorView.mas_bottom);
+            make.left.equalTo(_colorView.mas_left).with.offset(10);
             make.width.mas_offset(SCREEN_WIDTH - 20);
             make.height.mas_offset(0.5);
         }];
@@ -180,18 +188,18 @@
     
     if (sizeArray.count > 0) {
         //选择尺寸区域
-        UIView *sizeView  = [[UIView alloc] init];
-        [contentViewOfScroll addSubview:sizeView];
+        _sizeView  = [[UIView alloc] init];
+        [contentViewOfScroll addSubview:_sizeView];
         
         UILabel *sizeTitle = [[UILabel alloc] init];
         sizeTitle.font = kSystemFont(12);
         sizeTitle.textColor = MAIN_TEXT_COLOR;
         sizeTitle.text = @"尺码";
         [sizeTitle sizeToFit];
-        [sizeView addSubview:sizeTitle];
+        [_sizeView addSubview:sizeTitle];
         [sizeTitle mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(sizeView.mas_left).with.offset(10);
-            make.top.equalTo(sizeView.mas_top).with.offset(10);
+            make.left.equalTo(_sizeView.mas_left).with.offset(10);
+            make.top.equalTo(_sizeView.mas_top).with.offset(10);
         }];
         CGFloat currentWidth = 10.0;
         CGFloat currentHeight = 6.0;
@@ -200,40 +208,42 @@
             CGSize size = [sizeString sizeWithAttributes:@{NSFontAttributeName : kSystemFont(11)}];
             if (currentWidth + size.width + 20.0 > SCREEN_WIDTH) {
                 currentWidth = 10.0;
-                currentHeight += 22.0;
+                currentHeight += 34.0;
             }
             UIButton *sizeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            sizeButton.tag = 2000 + i;
             sizeButton.titleLabel.font = kSystemFont(11);
             sizeButton.layer.masksToBounds = YES;
-            sizeButton.layer.cornerRadius = 2.0;
+            sizeButton.layer.cornerRadius = 6.0;
             [sizeButton setTitle:sizeString forState:UIControlStateNormal];
             [sizeButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
             [sizeButton setTitleColor:MAIN_TEXT_COLOR forState:UIControlStateNormal];
             [sizeButton setBackgroundImage:GJCFQuickImageByColorWithSize(NAVIGATIONBAR_COLOR, CGSizeMake(1, 1)) forState:UIControlStateSelected];
             [sizeButton setBackgroundImage:GJCFQuickImageByColorWithSize(kHexRGBColorWithAlpha(0xf5f5f5, 1.0), CGSizeMake(1, 1)) forState:UIControlStateNormal];
-            [sizeView addSubview:sizeButton];
+            [sizeButton addTarget:self action:@selector(sizeClick:) forControlEvents:UIControlEventTouchUpInside];
+            [_sizeView addSubview:sizeButton];
             [sizeButton mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(sizeView.mas_left).with.offset(currentWidth);
+                make.left.equalTo(_sizeView.mas_left).with.offset(currentWidth);
                 make.top.equalTo(sizeTitle.mas_bottom).with.offset(currentHeight);
-                make.height.mas_offset(16);
+                make.height.mas_offset(28);
                 make.width.mas_offset(size.width + 20);
             }];
             currentWidth += size.width + 30;
         }
-        [sizeView mas_makeConstraints:^(MASConstraintMaker *make) {
+        [_sizeView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(contentViewOfScroll.mas_top).with.offset(topOfView);
             make.left.equalTo(contentViewOfScroll.mas_left);
             make.right.equalTo(contentViewOfScroll.mas_right);
-            make.height.mas_offset(50 + currentHeight);
+            make.height.mas_offset(62 + currentHeight);
         }];
-        topOfView += 50 + currentHeight;
+        topOfView += 62 + currentHeight;
 
         UILabel *line = [[UILabel alloc] init];
         line.backgroundColor = BREAK_LINE_COLOR;
-        [sizeView addSubview:line];
+        [_sizeView addSubview:line];
         [line mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.equalTo(sizeView.mas_bottom);
-            make.left.equalTo(sizeView.mas_left).with.offset(10);
+            make.bottom.equalTo(_sizeView.mas_bottom);
+            make.left.equalTo(_sizeView.mas_left).with.offset(10);
             make.width.mas_offset(SCREEN_WIDTH - 20);
             make.height.mas_offset(0.5);
         }];
@@ -346,6 +356,7 @@
     // Drawing code
 }
 */
+#pragma mark - Action Method
 - (void)show {
     UIWindow *win = [[UIApplication sharedApplication] keyWindow];
     UIView *topView = [win.subviews firstObject];
@@ -366,6 +377,33 @@
     } completion:^(BOOL finished){
         [self removeFromSuperview];
     }];
+}
+- (void)colorClick:(UIButton *)button {
+    if (button.selected) {
+        button.selected = NO;
+    } else {
+        button.selected = YES;
+        for (NSInteger i = 0; i < _arrayOfColor.count; i ++) {
+            UIButton *tempButton = (UIButton *)[_colorView viewWithTag:i + 1000];
+            if (tempButton != button) {
+                tempButton.selected = NO;
+            }
+        }
+    }
+}
+- (void)sizeClick:(UIButton *)button {
+    if (button.selected) {
+        button.selected = NO;
+    } else {
+        button.selected = YES;
+        for (NSInteger i = 0; i < _arrayOfSize.count; i ++) {
+            UIButton *tempButton = (UIButton *)[_sizeView viewWithTag:i + 2000];
+            if (tempButton != button) {
+                tempButton.selected = NO;
+            }
+        }
+    }
+    
 }
 
 - (void)addToShoppingCartClick {}

@@ -1,27 +1,25 @@
 //
-//  MyOrderCell.m
+//  OrderDetailCell.m
 //  DongDong
 //
-//  Created by 项小盆友 on 16/7/14.
+//  Created by 项小盆友 on 16/7/27.
 //  Copyright © 2016年 项小盆友. All rights reserved.
 //
 
-#import "MyOrderCell.h"
+#import "OrderDetailCell.h"
 #import "OrderGoodsModel.h"
 #import "OrderGoodsView.h"
-
 #import <Masonry.h>
 
-@implementation MyOrderCell
+@implementation OrderDetailCell
 
 - (void)setupContentWith:(OrderModel *)model {
     self.orderNumberLabel.text = [NSString stringWithFormat:@"订单号:%@", model.orderNumber];
-    NSString *price = [NSString stringWithFormat:@"￥%@", XLStringFromFloat([model.orderPrice floatValue])];
-    NSString *priceString = [NSString stringWithFormat:@"合计:%@", price];
-    NSMutableAttributedString *priceMutableString = [[NSMutableAttributedString alloc] initWithString:priceString];
-    [priceMutableString addAttributes:@{NSFontAttributeName : kSystemFont(15)} range:NSMakeRange(3, price.length)];
-    self.orderPriceLabel.attributedText = priceMutableString;
-    self.orderGoodsQuantityLabel.text = [NSString stringWithFormat:@"共%@件商品", model.goodsQuantity];
+    self.orderStateLabel.text = @"已完成";
+    self.goodsPriceLabel.text = [NSString stringWithFormat:@"￥%@", XLStringFromFloat([model.orderPrice floatValue])];
+    self.freightLabel.text = [NSString stringWithFormat:@"￥%@", XLStringFromFloat([model.orderFreight floatValue])];
+    CGFloat totalPrice = [model.orderPrice floatValue] + [model.orderFreight floatValue];
+    self.totalPriceLabel.text = [NSString stringWithFormat:@"￥%@", XLStringFromFloat(totalPrice)];
     
     NSArray *goodsArray = [model.goodsArray copy];
     if (goodsArray.count > 0) {
@@ -44,18 +42,14 @@
     }
 }
 
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    self.testButton.layer.masksToBounds = YES;
-    self.testButton.layer.cornerRadius = 2.0;
-    self.testButton.layer.borderWidth = 0.5;
-    self.testButton.layer.borderColor = kHexRGBColorWithAlpha(0xff6138, 1.0).CGColor;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
     // Configure the view for the selected state
 }
 

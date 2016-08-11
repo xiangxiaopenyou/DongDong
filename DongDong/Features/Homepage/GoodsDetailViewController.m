@@ -13,7 +13,6 @@
 #import "GoodsEvaluationCell.h"
 #import "GoodsStyleView.h"
 
-#import <UIImageView+AFNetworking.h>
 #import <MJRefresh.h>
 #import <SDCycleScrollView.h>
 
@@ -25,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topTableViewTopConstraint;
 @property (weak, nonatomic) IBOutlet UIButton *shoppingCartButton;
 @property (weak, nonatomic) IBOutlet UIView *navigation;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIButton *collectButton;
 @property (strong, nonatomic) UILabel *detailHeaderLabel;
 
@@ -176,6 +176,7 @@
                 [self.view layoutIfNeeded];
             }];
             _isShowDetail = YES;
+            self.titleLabel.text = kPicturesAndArticlesDetail;
         }
     } else if (scrollView == self.detailTableView) {
         CGFloat currentPositionY = scrollView.contentOffset.y;
@@ -185,6 +186,7 @@
                 [self.view layoutIfNeeded];
             }];
             _isShowDetail = NO;
+            self.titleLabel.text = nil;
         }
     }
 }

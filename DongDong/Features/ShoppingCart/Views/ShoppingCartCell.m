@@ -7,7 +7,6 @@
 //
 
 #import "ShoppingCartCell.h"
-#import <UIImageView+AFNetworking.h>
 @interface ShoppingCartCell()
 @property (copy, nonatomic) selectBlock selectedBlock;
 @property (copy, nonatomic) editQuantityBlock editBlock;

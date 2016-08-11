@@ -7,6 +7,7 @@
 //
 
 #import "MyOrdersViewController.h"
+#import "OrderDetailViewController.h"
 #import "OrderModel.h"
 #import "OrderGoodsModel.h"
 #import "MyOrderCell.h"
@@ -37,6 +38,9 @@
     OrderModel *model1 = [OrderModel new];
     model1.orderId = @"1";
     model1.orderNumber = @"1273894728";
+    model1.consigneeName = @"项小盆友";
+    model1.consigneePhone = @"13732254511";
+    model1.orderAddress = @"浙江省 杭州市 下城区 河东路25号河东社区18幢3单元203";
     model1.goodsQuantity = @(2);
     model1.orderPrice = @(222.22);
     model1.orderState = @(1);
@@ -67,6 +71,9 @@
     model2.goodsQuantity = @(1);
     model2.orderPrice = @(199.9);
     model2.orderState = @(2);
+    model2.consigneeName = @"项小盆友";
+    model2.consigneePhone = @"13732254511";
+    model2.orderAddress = @"浙江省 杭州市 下城区 河东路25号河东社区18幢3单元203圣诞节发的啥积分大开发的啥空间打开是房间爱的是大空间发的啥空间";
     
     OrderGoodsModel *goodsModel3 = [OrderGoodsModel new];
     goodsModel3.goodsId = @"4";
@@ -151,6 +158,11 @@
     [cell setupContentWith:tempOrderModel];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    OrderDetailViewController *detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"OrderDetailView"];
+    detailViewController.orderModel = _orderArray[indexPath.row];
+    [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
 /*

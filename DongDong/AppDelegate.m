@@ -47,7 +47,7 @@
     [[UINavigationBar appearance] setBarTintColor:NAVIGATIONBAR_COLOR];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor],
-                                                           NSFontAttributeName : [UIFont boldSystemFontOfSize:18.0]}];
+                                                           NSFontAttributeName : kBoldSystemFont(18)}];
 }
 
 @end

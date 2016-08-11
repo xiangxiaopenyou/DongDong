@@ -73,7 +73,6 @@
         childViewController.tabBarItem.selectedImage = selectedImage;
         [self addChildViewController:navigationController];
     }
-    
 }
 
 /*

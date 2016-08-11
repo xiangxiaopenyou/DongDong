@@ -12,7 +12,6 @@
 #import "MessageTableViewController.h"
 #import "GoodsDetailViewController.h"
 
-#import <UIImageView+AFNetworking.h>
 #import <SDCycleScrollView.h>
 #import <GJCFUitils.h>
 
@@ -29,12 +28,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = MAIN_BACKGROUND_COLOR;
     self.navigationItem.title = kAppName;
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@""
-                                                                             style:UIBarButtonItemStylePlain
-                                                                            target:self
-                                                                            action:nil];
+    
     UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.messageButton];
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
     
@@ -129,7 +124,7 @@
     GJCFWeakSelf weakSelf = self;
     [cell goodsClickBlock:^(GoodsModel *model) {
         NSLog(@"name: %@\nprice: %@", model.goodsName, model.goodsPrice);
-        GoodsDetailViewController *detailViewController = [[UIStoryboard storyboardWithName:@"Homepage" bundle:nil] instantiateViewControllerWithIdentifier:@"GoodsDetailView"];
+        GoodsDetailViewController *detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"GoodsDetailView"];
         [weakSelf.navigationController pushViewController:detailViewController animated:YES];
     }];
     [cell setupContentWith:_gooodsArray[indexPath.row * 2] rightModel:rightModel];
@@ -148,14 +143,10 @@
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(35, 0, 100, 37)];
     label.font = kSystemFont(12);
     label.textColor = kRGBColor(73, 78, 82, 1.0);
-    label.text = @"精选商品";
+    label.text = kSelectedGoods;
     [headerView addSubview:label];
     return headerView;
 }
-
-//- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-//    [self.navigationController setNavigationBarHidden:YES animated:YES];
-//}
 
 #pragma mark - SDCycleScrollView Delegate
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index {

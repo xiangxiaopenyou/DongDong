@@ -7,7 +7,6 @@
 //
 
 #import "MessageCell.h"
-#import <UIImageView+AFNetworking.h>
 #import <GJCFUitils.h>
 
 @implementation MessageCell

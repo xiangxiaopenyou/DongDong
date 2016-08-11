@@ -150,7 +150,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="rUv-yT-qpO" firstAttribute="leading" secondItem="Zmv-9h-Ggy" secondAttribute="leading" id="TwX-Yy-xC0"/>
                             <constraint firstItem="YtE-TK-SR2" firstAttribute="top" secondItem="rUv-yT-qpO" secondAttribute="bottom" id="ZJR-hI-u2i"/>
@@ -189,7 +189,7 @@
                                     <rect key="frame" x="0.0" y="337" width="600" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="继续拖动，查看图片详情" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zuz-9h-BLq">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="继续拖动，查看图文详情" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zuz-9h-BLq">
                                             <rect key="frame" x="225" y="13" width="150" height="15"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="150" id="aKU-Fq-71B"/>
@@ -576,6 +576,12 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B01-NG-OJv">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qrg-bm-WtD">
+                                        <rect key="frame" x="300" y="20" width="0.0" height="44"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ncz-Jn-wba">
                                         <rect key="frame" x="0.0" y="20" width="60" height="40"/>
                                         <constraints>
@@ -592,7 +598,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="YOo-A8-CN4"/>
                                         </constraints>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="-20" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="-12" maxY="0.0"/>
                                         <state key="normal" image="detail_shoppingcart"/>
                                         <state key="selected" image="detail_shoppingcart_selected"/>
                                         <connections>
@@ -605,11 +611,14 @@
                                     <constraint firstItem="Kj4-Hz-pa7" firstAttribute="top" secondItem="B01-NG-OJv" secondAttribute="top" constant="20" id="2LK-gh-EqZ"/>
                                     <constraint firstAttribute="height" constant="64" id="370-C7-MrC"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="64" id="7Rd-gw-hyL"/>
+                                    <constraint firstItem="Qrg-bm-WtD" firstAttribute="centerX" secondItem="B01-NG-OJv" secondAttribute="centerX" id="CU9-lx-2NY"/>
+                                    <constraint firstItem="Qrg-bm-WtD" firstAttribute="top" secondItem="B01-NG-OJv" secondAttribute="top" constant="20" id="TtR-AP-rTB"/>
                                     <constraint firstAttribute="trailing" secondItem="Kj4-Hz-pa7" secondAttribute="trailing" id="UGD-Y1-xIG"/>
                                     <constraint firstAttribute="bottom" secondItem="ncz-Jn-wba" secondAttribute="bottom" constant="4" id="VfL-L8-GlB"/>
                                     <constraint firstAttribute="bottom" secondItem="Kj4-Hz-pa7" secondAttribute="bottom" constant="4" id="aww-BD-NsG"/>
                                     <constraint firstItem="ncz-Jn-wba" firstAttribute="top" secondItem="B01-NG-OJv" secondAttribute="top" constant="20" id="myL-ET-wrV"/>
                                     <constraint firstItem="ncz-Jn-wba" firstAttribute="leading" secondItem="B01-NG-OJv" secondAttribute="leading" id="p6D-Qp-Bon"/>
+                                    <constraint firstAttribute="bottom" secondItem="Qrg-bm-WtD" secondAttribute="bottom" id="ru2-SH-btu"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -635,6 +644,7 @@
                         <outlet property="detailTableViewHeightConstraint" destination="5o0-e5-eA4" id="vXM-8i-syr"/>
                         <outlet property="navigation" destination="B01-NG-OJv" id="mJz-Fb-5Hz"/>
                         <outlet property="shoppingCartButton" destination="Kj4-Hz-pa7" id="uKO-zr-C7d"/>
+                        <outlet property="titleLabel" destination="Qrg-bm-WtD" id="StS-pN-TAi"/>
                         <outlet property="topTableView" destination="vSd-Bw-pgo" id="Vdg-9E-em1"/>
                         <outlet property="topTableViewHeightConstraint" destination="wKY-WO-BKF" id="TNV-m7-84K"/>
                         <outlet property="topTableViewTopConstraint" destination="mHT-3e-aqE" id="5VO-zo-cjU"/>

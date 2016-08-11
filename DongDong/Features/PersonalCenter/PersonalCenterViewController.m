@@ -93,9 +93,6 @@
         default:
             break;
     }
-//    UILabel *line = [[UILabel alloc] initWithFrame:CGRectMake(0, 44.5, SCREEN_WIDTH, 0.5)];
-//    line.backgroundColor = BREAK_LINE_COLOR;
-//    [cell addSubview:line];
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -104,7 +101,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+/**
+ *  分割线置顶
+ */
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     // Remove seperator inset
     if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
         [cell setSeparatorInset:UIEdgeInsetsZero];
@@ -143,7 +143,7 @@
 - (IBAction)messageTouchUpAction:(id)sender {
 }
 - (IBAction)editInformation:(id)sender {
-    InformationEditTableViewController *informationView = [[UIStoryboard storyboardWithName:@"PersonalCenter" bundle:nil] instantiateViewControllerWithIdentifier:@"InformationEditView"];
+    InformationEditTableViewController *informationView = [self.storyboard instantiateViewControllerWithIdentifier:@"InformationEditView"];
     [self.navigationController pushViewController:informationView animated:YES];
     
 }

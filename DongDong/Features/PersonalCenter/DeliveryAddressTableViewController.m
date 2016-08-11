@@ -22,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = kDeliveryAddress;
+    self.navigationItem.title = kManageDeliveryAddress;
     AddressModel *model1 = [AddressModel new];
     model1.addressId = @"1";
     model1.name = @"项林平";
@@ -53,11 +53,6 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"添加" style:UIBarButtonItemStylePlain target:self action:@selector(addAddress)];
-    //去掉返回按钮的文字
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@""
-                                                                             style:UIBarButtonItemStylePlain
-                                                                            target:self
-                                                                            action:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -145,7 +140,7 @@
     [self.tableView reloadData];
 }
 - (void)addressDidClickEdit:(AddressModel *)model {
-    AddAddressViewController *addAddressViewController = [[UIStoryboard storyboardWithName:@"PersonalCenter" bundle:nil] instantiateViewControllerWithIdentifier:@"AddAddressView"];
+    AddAddressViewController *addAddressViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AddAddressView"];
     addAddressViewController.addressModel = model;
     [self.navigationController pushViewController:addAddressViewController animated:YES];
 }
@@ -173,7 +168,7 @@
  *  添加地址
  */
 - (void)addAddress {
-    AddAddressViewController *addAddressViewController = [[UIStoryboard storyboardWithName:@"PersonalCenter" bundle:nil] instantiateViewControllerWithIdentifier:@"AddAddressView"];
+    AddAddressViewController *addAddressViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AddAddressView"];
     [self.navigationController pushViewController:addAddressViewController animated:YES];
 }
 

@@ -21,7 +21,6 @@
 
 #pragma mark - Cache
 + (BOOL)isNullObject:(id)anObject;
-
 + (NSURL *)urlWithString:(NSString *)urlString;
 + (NSString *)numberString:(CGFloat)floatNumber;
 + (CGSize)sizeOfText:(NSString *)text width:(CGFloat)width font:(UIFont *)font;
