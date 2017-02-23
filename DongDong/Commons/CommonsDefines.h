@@ -54,4 +54,9 @@ extern NSString * const kCameraNotAvailable;
 extern NSString * const kAppCameraAccessNotAuthorized;
 extern NSString * const kAppPhotoLibraryAccessNotAuthorized;
 
+/**
+ *  接口
+ */
+extern NSString * const GOODS_LIST;
+
 

@@ -7,6 +7,7 @@
 //
 
 #import "Util.h"
+#import "RequestManager.h"
 #import <AVFoundation/AVFoundation.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 
@@ -22,10 +23,10 @@
     return [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
 }
 + (BOOL)canSendSMS {
-    return [[UIApplication sharedApplication] canOpenURL:[self urlWithString:@"sms://"]];
+    return [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"sms://"]];
 }
 + (BOOL)canMakePhoneCall {
-    return [[UIApplication sharedApplication] canOpenURL:[self urlWithString:@"tal://"]];
+    return [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"tal://"]];
 }
 + (BOOL)isAppCameraAccessAuthorized {
     NSString *mediaType = AVMediaTypeVideo;
@@ -42,7 +43,6 @@
         return authStatus == ALAuthorizationStatusNotDetermined;
         
     } else {
-        
         return YES;
     }
 }
@@ -56,7 +56,9 @@
 }
 
 + (NSURL *)urlWithString:(NSString *)urlString {
-    NSURL *url = [NSURL URLWithString:urlString];
+    NSString *imageUrlString = [NSString stringWithFormat:@"%@%@", BASEIMAGEURL, urlString];
+    imageUrlString = [imageUrlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSURL *url = [NSURL URLWithString:imageUrlString];
     return url;
 }
 + (NSString *)numberString:(CGFloat)floatNumber {

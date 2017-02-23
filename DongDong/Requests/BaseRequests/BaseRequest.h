@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RequestManager.h"
 typedef BOOL (^ParamsBlock)(id request);
 typedef void (^RequestResultHandler)(id object, NSString *msg);
 @protocol RequestProtocol <NSObject>

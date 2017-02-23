@@ -46,3 +46,5 @@ NSString * const kEmptyShoppingCart = @"空空如也~";
 NSString * const kCameraNotAvailable = @"您的设备不支持拍照";
 NSString * const kAppCameraAccessNotAuthorized = @"请在“设置-隐私-相机”选项中允许咚咚访问您的相机";
 NSString * const kAppPhotoLibraryAccessNotAuthorized = @"请在“设置-隐私-照片”选项中允许咚咚访问您的相册";
+
+NSString * const GOODS_LIST = @"Goods/select";

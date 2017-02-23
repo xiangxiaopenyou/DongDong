@@ -7,8 +7,8 @@
 //
 
 #import "RequestManager.h"
-NSString * const BASEAPIURL = @"";
-NSString * const BASEIMAGEURL = @"";
+NSString * const BASEAPIURL = @"http://115.28.54.184/Home/";
+NSString * const BASEIMAGEURL = @"http://7xwgun.com1.z0.glb.clouddn.com";
 
 @implementation RequestManager
 + (instancetype)sharedInstance {

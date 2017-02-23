@@ -1,19 +1,20 @@
 //
-//  BlockButton.m
-//  MasonryTest
+//  XLBlockedButton.m
+//  DongDong
 //
-//  Created by 项小盆友 on 16/5/30.
+//  Created by 项小盆友 on 16/9/10.
 //  Copyright © 2016年 项小盆友. All rights reserved.
 //
 
-#import "BlockButton.h"
+#import "XLBlockedButton.h"
 
-@interface BlockButton()
+@interface XLBlockedButton()
 @property (copy, nonatomic) ButtonBlocked block;
 
 @end
 
-@implementation BlockButton
+@implementation XLBlockedButton
+
 - (instancetype)initWithFrame:(CGRect)frame title:(NSString *)title titleColor:(UIColor *)color font:(UIFont *)font image:(UIImage *)image {
     self = [super initWithFrame:frame];
     if (self) {

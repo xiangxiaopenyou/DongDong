@@ -16,9 +16,9 @@
 @implementation GoodsListCell
 - (void)setupContentWith:(GoodsModel *)leftModel rightModel:(GoodsModel *)rightModel {
     self.tempLeftModel = [leftModel copy];
-    [self.leftImageView setImageWithURL:XLURLFromString(leftModel.mainImageUrl) placeholderImage:nil];
-    self.leftGoodsName.text = [NSString stringWithFormat:@"%@", leftModel.goodsName];
-    self.leftGoodsPrice.text = [NSString stringWithFormat:@"￥%@", XLStringFromFloat([leftModel.goodsPrice floatValue])];
+    [self.leftImageView setImageWithURL:XLURLFromString(leftModel.pic_url) placeholderImage:nil];
+    self.leftGoodsName.text = [NSString stringWithFormat:@"%@", leftModel.g_name];
+    self.leftGoodsPrice.text = [NSString stringWithFormat:@"￥%@", XLStringFromFloat([leftModel.g_sales_price floatValue])];
     self.leftView.userInteractionEnabled = YES;
     [self.leftView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(leftViewRecognizer:)]];
     if (!rightModel) {
@@ -27,9 +27,9 @@
     } else {
         self.tempRightModel = [rightModel copy];
         self.rightView.hidden = NO;
-        [self.rightImageView setImageWithURL:XLURLFromString(rightModel.mainImageUrl)];
-        self.rightGoodsName.text = [NSString stringWithFormat:@"%@", rightModel.goodsName];
-        self.rightGoodsPrice.text = [NSString stringWithFormat:@"￥%@", XLStringFromFloat([rightModel.goodsPrice floatValue])];
+        [self.rightImageView setImageWithURL:XLURLFromString(rightModel.pic_url) placeholderImage:nil];
+        self.rightGoodsName.text = [NSString stringWithFormat:@"%@", rightModel.g_name];
+        self.rightGoodsPrice.text = [NSString stringWithFormat:@"￥%@", XLStringFromFloat([rightModel.g_sales_price floatValue])];
         self.rightView.userInteractionEnabled = YES;
         [self.rightView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(rightViewRecogizer:)]];
     }

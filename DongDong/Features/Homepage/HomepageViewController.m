@@ -12,6 +12,8 @@
 #import "MessageTableViewController.h"
 #import "GoodsDetailViewController.h"
 
+#import "ResultIndexModel.h"
+
 #import <SDCycleScrollView.h>
 #import <GJCFUitils.h>
 
@@ -20,6 +22,7 @@
 @property (strong, nonatomic) UIButton *messageButton;
 
 @property (strong, nonatomic) NSMutableArray *gooodsArray;
+@property (assign, nonatomic) NSInteger page;
 
 @end
 
@@ -32,34 +35,36 @@
     
     UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.messageButton];
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
+    _page = 1;
     
-    GoodsModel *model1 = [GoodsModel new];
-    model1.mainImageUrl = @"http://img1.3lian.com/img013/v4/57/d/11.jpg";
-    model1.goodsName = @"潮款男裤";
-    model1.goodsPrice = @(100);
-    
-    GoodsModel *model2 = [GoodsModel new];
-    model2.mainImageUrl = @"http://img1.3lian.com/img013/v4/57/d/12.jpg";
-    model2.goodsName = @"我擦";
-    model2.goodsPrice = @(59.9);
-    
-    GoodsModel *model3 = [GoodsModel new];
-    model3.mainImageUrl = @"http://img1.3lian.com/img013/v4/57/d/1.jpg";
-    model3.goodsName = @"哈哈";
-    model3.goodsPrice = @(5999.99);
-    
-    GoodsModel *model4 = [GoodsModel new];
-    model4.mainImageUrl = @"http://img1.3lian.com/img013/v4/57/d/15.jpg";
-    model4.goodsName = @"项小盆友爱上的浪费空间大师浪费空间打算减肥打算开飞机";
-    model4.goodsPrice = @(59.9);
-    
-    GoodsModel *model5 = [GoodsModel new];
-    model5.mainImageUrl = @"http://img1.3lian.com/img013/v4/57/d/16.jpg";
-    model5.goodsName = @"啊啊啊啊啊啊啊啊啊";
-    model5.goodsPrice = @(5999.99);
-    
-    _gooodsArray = [@[model1, model2, model3, model4, model5] mutableCopy];
+//    GoodsModel *model1 = [GoodsModel new];
+//    model1.mainImageUrl = @"http://img1.3lian.com/img013/v4/57/d/11.jpg";
+//    model1.goodsName = @"潮款男裤";
+//    model1.goodsPrice = @(100);
+//    
+//    GoodsModel *model2 = [GoodsModel new];
+//    model2.mainImageUrl = @"http://img1.3lian.com/img013/v4/57/d/12.jpg";
+//    model2.goodsName = @"我擦";
+//    model2.goodsPrice = @(59.9);
+//    
+//    GoodsModel *model3 = [GoodsModel new];
+//    model3.mainImageUrl = @"http://img1.3lian.com/img013/v4/57/d/1.jpg";
+//    model3.goodsName = @"哈哈";
+//    model3.goodsPrice = @(5999.99);
+//    
+//    GoodsModel *model4 = [GoodsModel new];
+//    model4.mainImageUrl = @"http://img1.3lian.com/img013/v4/57/d/15.jpg";
+//    model4.goodsName = @"项小盆友爱上的浪费空间大师浪费空间打算减肥打算开飞机";
+//    model4.goodsPrice = @(59.9);
+//    
+//    GoodsModel *model5 = [GoodsModel new];
+//    model5.mainImageUrl = @"http://img1.3lian.com/img013/v4/57/d/16.jpg";
+//    model5.goodsName = @"啊啊啊啊啊啊啊啊啊";
+//    model5.goodsPrice = @(5999.99);
+//    
+//    _gooodsArray = [@[model1, model2, model3, model4, model5] mutableCopy];
     [self initTableHeaderView];
+    [self fetchList];
 }
 /**
  *  TableHeaderView
@@ -96,6 +101,19 @@
     
 }
 
+#pragma mark - Request
+- (void)fetchList {
+    [GoodsModel fetchGoodsList:_page handler:^(id object, NSString *msg) {
+        if (object) {
+            ResultIndexModel *tempModel = object;
+            _gooodsArray = [tempModel.result mutableCopy];
+            [self.tableView reloadData];
+        } else {
+            NSLog(@"请求失败");
+        }
+    }];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -123,7 +141,7 @@
     }
     GJCFWeakSelf weakSelf = self;
     [cell goodsClickBlock:^(GoodsModel *model) {
-        NSLog(@"name: %@\nprice: %@", model.goodsName, model.goodsPrice);
+        NSLog(@"name: %@\nprice: %@", model.g_name, model.g_sales_price);
         GoodsDetailViewController *detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"GoodsDetailView"];
         [weakSelf.navigationController pushViewController:detailViewController animated:YES];
     }];
